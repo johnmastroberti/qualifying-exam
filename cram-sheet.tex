@@ -1,0 +1,566 @@
+% Created 2021-08-12 Thu 10:18
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{jm}
+\renewcommand{\HH}{\mathbf{H}}
+\newcommand{\DD}{\mathbf{D}}
+\newcommand{\MM}{\mathbf{M}}
+\newcommand{\PP}{\mathbf{P}}
+\newcommand{\mm}{\mathbf{m}}
+\newcommand{\oo}{\boldsymbol{\omega}}
+\renewcommand{\SS}{\mathbf{S}}
+\author{John Mastroberti}
+\date{\today}
+\title{Qualifying Exam Cram Sheet}
+\hypersetup{
+ pdfauthor={John Mastroberti},
+ pdftitle={Qualifying Exam Cram Sheet},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.2 (Org mode 9.5)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\newpage
+\section{Electromagnetism}
+\label{sec:orgbb406d8}
+\subsection{Basics}
+\label{sec:orgefee42a}
+\subsubsection{Maxwell's equations}
+\label{sec:org08a4c67}
+\begin{align*}
+\del \cdot \DD & = \rho & \del \cdot \BB & = 0 \\
+\del \times \EE & = -\pd{\BB}{t} & \del \times \HH & = \JJ + \pd{\DD}{t}
+\end{align*}
+\subsubsection{Lorentz Force Law}
+\label{sec:org20761d2}
+\begin{align*}
+\FF & = q(\EE + \vv \times \BB)
+\end{align*}
+
+\subsubsection{Definition of \(\DD\) and \(\HH\)}
+\label{sec:org654188f}
+In terms of \(\PP\) and \(\MM\),
+\begin{align*}
+\DD & = \eps_0 \EE + \PP \\
+\HH & = \frac{1}{\mu_0} \BB - \MM
+\end{align*}
+In linear media,
+\begin{align*}
+\DD & = \eps \EE \\
+\HH & = \frac{1}{\mu} \BB
+\end{align*}
+\subsubsection{Potentials}
+\label{sec:orgf699c1c}
+\begin{align*}
+\EE & = -\del \Phi &           \Phi(\xxx) & = \frac{1}{4\pi \eps_0} \int \frac{\rho(\xxx')}{\left| \xxx - \xxx' \right|} d^3 x'
+                                            + \frac{1}{4\pi \eps_0} \oint \frac{\sigma(\xxx')}{\left| \xxx - \xxx' \right|} da  \\
+\BB & = \del \times \AA &      \AA(\xxx) & = \frac{\mu_0}{4\pi} \int \frac{\JJ(\xxx')}{\left| \xxx - \xxx' \right|} d^3 x'
+\end{align*}
+\subsubsection{Charge Density}
+\label{sec:org061a651}
+\begin{align*}
+\sigma & = -\eps_0 \pd{\Phi}{\hat{n}}
+\end{align*}
+
+\subsection{Laplace's Equation and Solutions}
+\label{sec:org1708958}
+In a source free region, both \(\EE\) and \(\HH\) can be written as the gradient of a scalar potential which satisfies Laplace's equation,
+\begin{align*}
+\nabla^2 \Phi & = 0
+\end{align*}
+\subsubsection{2D Rectangular Coordinates}
+\label{sec:orgbd3f542}
+\begin{align*}
+\Phi(x,y) & = \sum_k (A_k \sinh(kx) + B_k \cosh(kx)) (C_k \sin(ky) + D_k \cos(ky))
+\end{align*}
+Coefficients and allowed values of \(k\) are determined by boundary conditions
+\subsubsection{2D Polar Coordinates}
+\label{sec:org4b5ba68}
+\begin{align*}
+\Phi(r, \phi) & = \sum_n (A_n r^n + B_n r^{-n}) (C_n \cos n\phi + D_n \sin n\phi)
+\end{align*}
+\subsubsection{3D Spherical with Azimuthal Symmetry}
+\label{sec:org2b71fa4}
+\begin{align*}
+\Phi(r, \theta) & = \sum_l \left( A_l r^l + \frac{B_l}{r^{l+1}} \right) P_l(\cos \theta)
+\end{align*}
+\subsubsection{3D Spherical without Azimuthal Symmetry}
+\label{sec:org024c555}
+\begin{align*}
+\Phi(r, \theta) & = \sum_{l,m} \left( A_l r^l + \frac{B_l}{r^{l+1}} \right) Y_{lm}(\theta, \phi)
+\end{align*}
+\subsection{The Addition Theorem}
+\label{sec:org576bded}
+\begin{align*}
+\frac{1}{\left| \xxx - \xxx' \right|} & = 4\pi \sum_l \sum_m \frac{1}{2l+1} \frac{r_<^l}{r_>^{l+1}} Y_{lm}^*(\theta', \phi') Y_{lm}(\theta, \phi)
+\end{align*}
+\subsection{The Multipole Expansion}
+\label{sec:orgf3ec7c4}
+\subsubsection{Spherical Coordinates}
+\label{sec:orga61f4e8}
+\begin{align*}
+\Phi(\xxx) & = \frac{1}{4\pi \eps_0} \sum_l \sum_m \frac{4\pi}{2l+1} q_{lm} \frac{Y_{lm}(\theta, \phi)}{r^{l+1}} \\
+q_{lm} & = \int Y_{lm}^*(\theta', \phi') r^{\prime l} \rho(\xxx') \, d^3 x'
+\end{align*}
+\subsubsection{Rectangular Dipole and Quadrupole Moments}
+\label{sec:org91c2fc3}
+\begin{align*}
+\pp & = \int \xxx' \rho(\xxx') \, d^3 x' \\
+Q_{ij} & = \int (3x_i' x_j' - r^{\prime 2} \delta_{ij}) \rho(\xxx') \, d^3 x' \\
+\Phi(\xxx) & = \frac{1}{4\pi \eps_0} \left[ \frac{q}{r} + \frac{\pp \cdot \xxx}{r^3}
++ \frac{1}{2} \sum_{i,j} Q_{ij} \frac{x_i x_j}{r^5} \right]
+\end{align*}
+\subsection{Magnetism}
+\label{sec:orgb52da8b}
+\subsubsection{Magnetic Field Due to Current Distribution}
+\label{sec:orga730855}
+\begin{align*}
+\BB & = \frac{\mu_0}{4\pi} \int \JJ(\xxx') \frac{\xxx - \xxx'}{\left| \xxx - \xxx' \right|} d^3 x'
+\end{align*}
+\subsubsection{Magnetic Dipole Moment}
+\label{sec:org0febd6c}
+\begin{align*}
+\mm & = \frac{1}{2} \int \xxx' \times \JJ(\xxx') \, d^3 x' \\
+m & = I A & \mbox{(for a loop)} \\
+\BB & = \frac{\mu_0}{4\pi} \frac{3\nn (\nn \cdot \mm) - \mm}{r^3}
+\end{align*}
+\subsubsection{Magnetostatic Boundary Value Problems}
+\label{sec:org94623f9}
+\begin{enumerate}
+\item Source Free
+\label{sec:org38e6e25}
+\begin{align*}
+\HH & = -\del \Phi_M \\
+\nabla^2 \Phi_M & = 0
+\end{align*}
+\item Hard Ferromagnets (\(\MM\) given)
+\label{sec:org9bee4dc}
+\begin{align*}
+\rho_M & = -\del \cdot \MM \\
+\sigma_M & = \nn \cdot \MM \\
+\Phi_M(\xxx) & = \frac{1}{4\pi} \int \frac{\rho_M(\xxx')}{\left| \xxx - \xxx' \right|} \, d^3 x'
+               + \frac{1}{4\pi} \oint \frac{\sigma_M(\xxx')}{\left| \xxx - \xxx' \right|} \, da
+\end{align*}
+\end{enumerate}
+\subsection{Boundary Value Problem Matching Conditions}
+\label{sec:org1190639}
+\begin{align*}
+(\DD_2 - \DD_1) \cdot \nn & = \sigma \\
+(\EE_2 - \EE_1) \times \nn & = 0 \\
+(\BB_2 - \BB_1) \cdot \nn & = 0 \\
+(\HH_2 - \HH_1) \times \nn & = -\mathbf{K} \mbox{ (surface current density)}
+\end{align*}
+\subsection{Field Energy and Momentum}
+\label{sec:org3bdef52}
+\subsubsection{Energy Density}
+\label{sec:orgf618143}
+\begin{align*}
+u & = \frac{1}{2} (\EE \cdot \DD + \BB \cdot \HH)
+\end{align*}
+\subsubsection{Momentum Density}
+\label{sec:org14cc533}
+\begin{align*}
+\mathbf{g} & = \frac{1}{c^2} \SS \\
+\SS & = \EE \times \HH
+\end{align*}
+\subsubsection{Energy Conservation}
+\label{sec:org7d48afe}
+\begin{align*}
+\pd{u}{t} + \del \cdot \SS & = -\JJ \cdot \EE
+\end{align*}
+\subsection{Electromagnetic Waves}
+\label{sec:org56f9cda}
+\subsubsection{Equations}
+\label{sec:org98e7cf2}
+\begin{align*}
+\EE & = \EE_0 e^{i(k \nn \cdot \xxx - \omega t)} \\
+\HH & = \nn \times \EE / Z
+\end{align*}
+\subsubsection{Reflection/Refraction}
+\label{sec:org189cdc0}
+\begin{enumerate}
+\item Index of Refraction
+\label{sec:org5a69c09}
+\begin{align*}
+n & = \sqrt{\frac{\mu \eps}{\mu_0 \eps_0}}
+\end{align*}
+\item Normal Incidence
+\label{sec:org8878996}
+\begin{itemize}
+\item Transverse components of \(\EE\) and \(\HH\) are continuous
+\item Reflection and transmission coefficients:
+\end{itemize}
+\begin{align*}
+T & = \frac{2n}{n' + n} \\
+R & = \pm \frac{n-n'}{n+n'} \\
+\end{align*}
+\end{enumerate}
+\subsection{Radiation}
+\label{sec:orgeaa14b5}
+\subsubsection{Power Radiated}
+\label{sec:org3304da7}
+\begin{align*}
+\td{P}{\Omega} & = \frac{1}{2} \mathrm{Re} [r^2 \nn \cdot \EE \times \HH^*] \\
+& = \frac{c^2 Z_0}{32 \pi^2} k^4 \left| (\nn \times \pp) \times \nn \right|^2 \mbox{ (for dipole radiation)}
+\end{align*}
+\subsection{Relativity}
+\label{sec:orgec17e24}
+\begin{align*}
+\gamma & = \frac{1}{\sqrt{1 - \beta^2}} \\
+\Gamma & = \left( \begin{array}{cccc}
+                  \gamma & \pm \gamma \beta & 0 & 0 \\
+                  \pm \gamma \beta & \gamma & 0 & 0 \\
+                  0 & 0 & 1 & 0 \\
+                  0 & 0 & 0 & 1 \\ \end{array} \right) \\
+p_\mu p^\mu & = m^2 \\
+E & = \gamma m c^2 \\
+\pp & = \gamma m \uu \\
+U_\mu & = (\gamma c, \gamma \uu) \\
+p_\mu & = m U_\mu
+\end{align*}
+
+
+
+
+
+\newpage
+\section{Mechanics}
+\label{sec:org79e6cb9}
+\subsection{Basics}
+\label{sec:org7a2db35}
+\begin{align*}
+\FF & = \dot{\pp} \\
+\boldsymbol{\Gamma} & = \rrr \times \FF \\
+\LL & = \rrr \times \pp
+\end{align*}
+\subsection{Orbital Motion}
+\label{sec:org909c331}
+\begin{align*}
+V_{eff}(r) & = V(r) + \frac{\ell^2}{2mr^2}
+\end{align*}
+\begin{itemize}
+\item Circular orbits \(\rightarrow\) minimum of \(V_{eff}\)
+\item Minimum and maximum \(r\) values for a non-circular orbit \(\rightarrow\) solutions of \(V_{eff} = E\)
+\end{itemize}
+\begin{align*}
+\phi & = \pm \frac{\ell}{\sqrt{2m}} \int dr \, r^{-2} [E - V_{eff}(r)]^{-1/2}
+\end{align*}
+\subsection{Non-inertial Coordinate Systems}
+\label{sec:org5a0c685}
+\begin{align*}
+\ddot{\rrr}_{body} & = \frac{\FF^{(e)}}{m} - \ddot{\mathbf{a}}_{inertial} - 2\oo \times \dot{\rrr}_{body}
+- \oo \times (\oo \times \rr) - \dot{\oo} \times \rrr
+\end{align*}
+\subsection{Lagrangian Dynamics}
+\label{sec:org624c956}
+\begin{align*}
+\Lg & = T - V \\
+\pd{\Lg}{q} & = \td{}{t} \pd{\Lg}{\dot{q}}
+\end{align*}
+
+With constraints
+\begin{align*}
+f_j(q_1, \ldots, q_n, t) & = c_j, \, j = 1, \ldots, k
+\end{align*}
+the Euler-Lagrange equation becomes
+\begin{align*}
+\td{\Lg}{\dot{q}_\sigma} - \pd{\Lg}{q_\sigma} & = \sum_{j=1}^k \lambda_j \pd{f_j}{q_\sigma}, \, \sigma = 1, \ldots, n
+\end{align*}
+where the constraint forces are given by the right hand side,
+\begin{align*}
+Q_\sigma & = \sum_{j=1}^k \lambda_j \pd{f_j}{q_\sigma}
+\end{align*}
+
+\subsection{Small Oscillations}
+\label{sec:org8fc5107}
+First, expand the coordinates around their equilibrium values:
+\begin{align*}
+q_\sigma & = q_\sigma^0 + \eta_\sigma \\
+\dot{q}_\sigma & = \dot{\eta}_\sigma
+\end{align*}
+Then, working to quadratic order in \(\eta\), write \(T\) and \(V\) as
+\begin{align*}
+T & = \frac{1}{2} \sum_\sigma \sum_\lambda m_{\sigma \lambda} \dot{\eta}_\sigma \dot{\eta}_\lambda \\
+V & = \frac{1}{2} \sum_\sigma \sum_\lambda v_{\sigma \lambda} \eta_\sigma \eta_\lambda
+\end{align*}
+This determines the \(\underline{m}\) and \(\underline{v}\) matrices.
+Finally, the normal mode frequencies are found via
+\begin{align*}
+0 & = \det [ \underline{v} - \omega^2 \underline{m} ]
+\end{align*}
+and the normal mode eigenvectors \(\boldsymbol{\rho}\) via
+\begin{align*}
+0 & = (\underline{v} - \omega^2 \underline{m}) \boldsymbol{\rho}
+\end{align*}
+
+\subsection{Rigid Body Rotations}
+\label{sec:org3358666}
+\begin{align*}
+\LL & = \underline{I} \oo \\
+T & = \frac{1}{2} \LL \cdot \oo \\
+I_1 \dot{\omega}_1 & = \omega_2 \omega_3 (I_2 - I_3) + \Gamma_1^{(e)} \mbox{ (and cyclic permutations)}
+\end{align*}
+
+
+\newpage
+\section{Quantum Mechanics}
+\label{sec:orgc7203e5}
+\subsection{Basics}
+\label{sec:org0fbb18f}
+\begin{align*}
+i\hbar \pd{}{t} \Psi(\xxx,t) & = H\Psi(\xxx, t) \\
+H\psi(\xxx) & = E\psi(\xxx) \\
+\psi(\xxx, t) & = \sum_n c_n \psi_n(\xxx) e^{-iEt/\hbar} \\
+H & = \frac{p^2}{2m} + V \\
+p & = -i\hbar \pd{}{x} \\
+[x, p] & = i\hbar \\
+\sigma_A \sigma_B & \ge \left| \frac{1}{2i} \Braket{[A, B]} \right|
+\end{align*}
+\begin{itemize}
+\item Matching conditions: \(\psi(x)\) and \(\psi'(x)\) are continuous
+\begin{itemize}
+\item \(\psi'(x)\) is discontinous in the presence of a delta function potential
+\item In that case, determine the discontinuity in \(\psi'(x)\) by integrating the Schrodinger
+equation over a small interval surrounding the delta function
+\end{itemize}
+\end{itemize}
+
+\subsection{Common Potentials}
+\label{sec:orgb244038}
+\subsubsection{Particle in a Box}
+\label{sec:org422716d}
+\begin{align*}
+V(x) & = \begin{dcases*}
+            0 & $x \in [0, a]$ \\
+            \infty & otherwise \\
+         \end{dcases*} \\
+\psi_n(x) & = \sqrt{\frac{2}{a}} \sin \frac{n \pi x}{a} \\
+E_n & = \frac{\hbar^2 n^2 \pi^2}{2ma^2}
+\end{align*}
+\subsubsection{Simple Harmonic Oscillator}
+\label{sec:orgdcf5358}
+\begin{align*}
+V(x) & = \frac{1}{2} m \omega^2 x^2 \\
+a & = \frac{1}{\sqrt{2\hbar m \omega}} (m\omega x + ip) \\
+[a, a^\dagger] & = 1 \\
+N & = a^\dagger a \\
+H & = \hbar \omega \left( N + \frac{1}{2} \right) \\
+E_n & = \hbar \omega \left( n + \frac{1}{2} \right) \\
+\psi_0(x) & = \left( \frac{m\omega}{\pi \hbar} \right)^{1/4} \exp \left( - \frac{m\omega}{2\hbar} x^2 \right) \\
+\psi_n(x) & = \frac{1}{\sqrt{n!}} (a^\dagger)^n \psi_0(x) \\
+a^\dagger \Ket{n} & = \sqrt{n+1} \Ket{n+1} \\
+a \Ket{n} & = \sqrt{n} \Ket{n-1} \\
+x & \propto a + a^\dagger \\
+p & \propto a - a^\dagger
+\end{align*}
+\subsubsection{Hydrogen Atom}
+\label{sec:orgc4a657e}
+\begin{align*}
+V(\xxx) & = -\frac{Ze^2}{r} \\
+\psi_{nlm}(\xxx) & = R_{nl}(r) Y_{lm}(\theta, \phi) \\
+E_n & = -\frac{Z^2 e^2}{2n^2 a_0} \\
+E_1 & = -13.6 \mathrm{eV}
+\end{align*}
+
+\subsection{Angular Momentum}
+\label{sec:org84e9405}
+\subsubsection{Basics}
+\label{sec:orge0ee30a}
+\begin{align*}
+[L_x, L_y] & = i\hbar L_z \\
+L_z \Ket{l, m} & = \hbar m \Ket{l, m} \\
+L^2 \Ket{l, m} & = \hbar^2 l (l+1) \Ket{l, m} \\
+L_{\pm} & = L_x \pm i L_y \\
+L_{\pm} \Ket{l, m} & = \hbar \sqrt{(l\mp m) (l \pm m + 1)} \Ket{l, m \pm 1} \\
+\sigma_x & = \left( \begin{array}{cc} 0 & 1 \\ 1 & 0 \\ \end{array} \right) \\
+\sigma_y & = \left( \begin{array}{cc} 0 & -i \\ i & 0 \\ \end{array} \right) \\
+\sigma_z & = \left( \begin{array}{cc} 1 & 0 \\ 0 & -1 \\ \end{array} \right)
+\end{align*}
+
+\begin{itemize}
+\item Allowed values of \(m\): \(-l, -l+1, \ldots, +l\)
+\end{itemize}
+
+\subsubsection{Addition of Angular Momentum}
+\label{sec:org2305033}
+\begin{align*}
+\JJ & = \LL_1 + \LL_2 \\
+J^2 & = L_1^2 + L_2^2 + 2 \LL_1 \cdot \LL_2 \\
+\LL_1 \cdot \LL_2 & = \frac{1}{2} ( J^2 - L_1^2 - L_2^2 ) \\
+\Ket{j, j_z} & = \sum C_{l_1, l_2, m_1, m_2} \Ket{l_1, m_1; l_2, m_2} \\
+j_z & = m_1 + m_2 \\
+j & = l_1 + l_2, l_1 + l_2 -1, \ldots, \left| l_1 - l_2 \right| \\
+\Ket{l_1 + l_2, l_1 + l_2} & = \Ket{l_1, l_1; l_2, l_2}
+\end{align*}
+
+\begin{itemize}
+\item \(\Ket{l_1+l_2 , j_z}\) is constructed by repeatedly applying \(J_-\) to \(\Ket{j, j}\).
+\item \(\Ket{j, j_z}\) is constructed by walking down the allowed values of \(j\) starting from \(l_1 + l_2\)
+\begin{itemize}
+\item Construct \(\Ket{j-1, j-1}\) from \(\Ket{j, j-1}\) by finding the linear combination of allowed \(m_1\) and \(m_2\)
+that is orthogonal to \(\Ket{j, j-1}\)
+\item Construct \(\Ket{j-1, j_z}\) by applying the lowering operator
+\end{itemize}
+\end{itemize}
+
+\subsection{Approximation Methods}
+\label{sec:orge4dc002}
+\subsubsection{Perturbation Theory}
+\label{sec:org1cacaa9}
+\begin{align*}
+H & = H_0 + V \\
+V_{mn} & = \Braket{m^{(0)} | V | n^{(0)}} \\
+E_n^{(1)} & = V_{nn} \\
+\Ket{n^{(1)}} & = \sum_{m \neq n} \frac{V_{mn}}{E_n^{(0)} - E_m^{(0)}} \Ket{m^{(0)}} \\
+E_n^{(2)} & = \sum_{m \neq n} \frac{\left| V_{nm} \right|^2}{E_n^{(0)} - E_m^{(0)}}
+\end{align*}
+
+\begin{itemize}
+\item In a degenerate subspace where all states have energy \(E_D\) under \(H_0\), the first order correction to the energy is found via
+\end{itemize}
+
+\begin{align*}
+0 & = \det [V - (E-E_D)]
+\end{align*}
+
+\subsubsection{Variational Principle}
+\label{sec:orgccabb26}
+\begin{align*}
+E_0 & \le \frac{\Braket{\psi | H | \psi}}{\Braket{\psi | \psi}}
+\end{align*}
+
+\subsubsection{WKB}
+\label{sec:org2014454}
+\begin{align*}
+p(x) & = \sqrt{2m(E - V(x)} \\
+\int_{x_1}^{x_2} p(x') \, dx' & = \begin{dcases*}
+                                        \left( n + \frac{1}{2} \right) \hbar \pi & no hard walls \\
+                                        \left( n + \frac{3}{4} \right) \hbar \pi & one hard wall \\
+                                        \left( n + 1 \right)           \hbar \pi & two hard walls \\
+                                  \end{dcases*}
+\end{align*}
+where \(x_1\) and \(x_2\) are the classical turning points (roots of \(p(x)\))
+
+\subsection{Scattering (Born Approximation)}
+\label{sec:org0ddb507}
+\begin{align*}
+f^{(1)}(\mathbf{k}, \mathbf{k}') & = -\frac{m}{2\pi \hbar^2} \int d^3 x' \, e^{i(\mathbf{k} - \mathbf{k}') \cdot \xxx'} V(\xxx') \\
+q & = \left| \mathbf{k} - \mathbf{k}' \right| = 2k \sin \frac{\theta}{2} \\
+f^{(1)}(\theta) & = -\frac{2m}{\hbar^2} \frac{1}{q} \intoi r V(r) \sin qr \, dr \\
+\td{\sigma}{\Omega} & = \left| f(\mathbf{k}', \mathbf{k}) \right|^2 \\
+\mathrm{Im} f(\mathbf{k}, \mathbf{k}) & = \frac{k}{4\pi} \sigma_{tot}
+\end{align*}
+
+\subsection{Many Body Theory}
+\label{sec:org8076df5}
+\begin{itemize}
+\item Boson wave functions are symmetric under any particle exchange
+\item Fermion wave functions are antisymmetric under any particle exchange
+\item For wave-functions with a spatial component and a spin component,
+\begin{itemize}
+\item Boson: symmetric in both or antisymmetric in both
+\item Fermion: symmetric in one and antisymmetric in the other
+\end{itemize}
+\end{itemize}
+
+
+\newpage
+\section{Statistical Physics}
+\label{sec:org3886690}
+\subsection{Basics}
+\label{sec:org8208ac7}
+\begin{align*}
+S & = k_B \log \Omega \\
+\pdc{S}{E}{N,V} & = \frac{1}{T} \\
+dE & = -PdV + TdS + \mu dN \\
+C_V & = \pdc{U}{T}{V, N}
+\end{align*}
+\begin{itemize}
+\item Isothermal: \(dT = 0\)
+\item Adiabatic: \(dS = 0\)
+\end{itemize}
+
+\subsection{Canonical Ensemble}
+\label{sec:org9f100d4}
+\begin{align*}
+Z & = \sum_{states} e^{-\beta E} \\
+\Braket{O} & = \frac{1}{Z} \sum_s O(s) e^{-\beta E} \\
+\sum_s & \rightarrow \int \frac{d^3 x \, d^3 p}{h^3} \\
+U & = -\pd{}{\beta} \log Z \\
+A & = U - TS = -k_B T \log Z \\
+dA & = -P dV - S dT
+\end{align*}
+
+\begin{itemize}
+\item Partition function for an ideal gas molecule:
+\begin{align*}
+  Z_1 & = \frac{V}{\lambda^3} \\
+  \lambda & = \sqrt{\frac{h^2}{2\pi m k_B T}}
+\end{align*}
+\item In general, for a system of non-interacting particles, the total partition function obeys
+\begin{align*}
+  Z & = \frac{1}{N!} Z_1^N
+\end{align*}
+where \(Z_1\) is the partition function for one particle,
+and the \(1/N!\) factor is necessary if the particles are indistinguishable
+\end{itemize}
+
+\subsection{Grand Canonical Ensemble}
+\label{sec:org7ec6960}
+\begin{align*}
+Z_G & = \sum_{states} e^{-\alpha N - \beta E} \\
+U & = -\pd{}{\beta} \log Z_G \\
+\mathcal{N} & = -\pd{}{\alpha} \log Z_G \\
+\alpha & = -\beta \mu \\
+y & = e^{-\alpha} = e^{\mu/k_B T} \\
+Z_G & = \sum_N y^N Z(N, \beta) \\
+\Phi_G & = -k_B T \log Z_G = U - TS - \mu \mathcal{N} = -PV
+\end{align*}
+
+\subsection{Quantum Statistical Mechanics}
+\label{sec:orgcb8f4e9}
+\begin{align*}
+Z_G & = \prod_n [1 - \eta e^{-\beta (E_n - \mu)} ]^{-\eta} \\
+\Braket{N_n} & = \frac{1}{y^{-1} e^{\beta E_n} - \eta} \\
+D(E) & = \frac{g(E)}{V} = \frac{1}{V} \sum_\mathbf{k} (E - E_\mathbf{k}) \\
+\varrho & = \int \frac{D(E)}{y^{-1} e^{\beta E} - 1} \, dE \\
+\log Z_G & = -\eta V \intoi \log ( 1 - \eta ye^{-\beta E} ) D(E) \, dE
+\end{align*}
+\begin{itemize}
+\item \(\eta = +1\) for bosons, \(-1\) for fermions
+\end{itemize}
+
+\subsubsection{Bose Systems}
+\label{sec:org0afd9ec}
+\begin{itemize}
+\item \(y=1\) at Bose-Einstein Condensation, and in all cases for photons
+\end{itemize}
+
+\subsubsection{Fermi Systems}
+\label{sec:org09f663f}
+\begin{align*}
+\varrho & = \int_0^{E_F} D(E) \, dE
+\end{align*}
+\begin{itemize}
+\item Any other Fermi parameter (Fermi temperature, Fermi momentum, etc)
+is determined from the relationship between energy and that parameter
+(E.g. \(T_F = E_F/k_B\))
+\end{itemize}
+\end{document}

@@ -1,0 +1,423 @@
+\documentclass[12pt]{article}
+
+\usepackage{jm}
+
+% This changes the first-level of an enumerated list to use letters instead of numbers
+\renewcommand{\theenumi}{\alph{enumi}}
+\begin{document}
+
+\title{Week 2}
+\author{John Mastroberti\\
+Qual Study}
+
+\maketitle
+
+\begin{solution}{2018.11}
+The ground state wave function should be symmetric about $x=0$.
+In the regions of interest ($\left| x \right| > a$ and $0 < \left| x \right| < a$,
+Schr\"{o}dinger's equation reads
+\begin{align*}
+\begin{dcases*}
+-\frac{\hbar^2}{2m} \psi'' = E \psi & $\left| x \right| > a$ \\
+-\frac{\hbar^2}{2m} \psi'' + V_1 \psi = E \psi & $0 < \left| x \right| < a$ \\
+\end{dcases*}
+\end{align*}
+Defining $k_1$ and $k_2$ by
+\begin{align*}
+k_1 & = \sqrt{ -\frac{2mE}{\hbar^2}} \\
+k_1 & = \sqrt{ -\frac{2m(E-V_1)}{\hbar^2}} \\
+\end{align*}
+we see that the solutions in the two regions are
+\begin{align*}
+\psi(x) & = \begin{dcases*}
+A e^{-k_1 \left| x \right|} & $\left| x \right| > a$ \\
+B e^{-k_2 \left| x \right|} + C e^{k_2 \left| x \right|} & $0 < \left| x \right| < a$ \\
+\end{dcases*}
+\end{align*}
+Applying matching conditions at $\left| x \right| = a$ gives us
+\begin{align*}
+A e^{-k_1 a} & = B e^{-k_2 a} + C e^{k_2 a} \\
+% C & = A e^{-k_1 a -k_2 a} - B e^{-2k_2 a} \\
+-k_1 A e^{-k_1 a} & = -k_2 B e^{-k_2 a} + k_2 C e^{k_2 a} \\
+0 & = \frac{k_2}{k_1} e^{-k_2 a} B - \frac{k_2}{k_1} e^{k_2 a} C \\
+B & = e^{2k_2 a} C
+\end{align*}
+Due to the delta function at $x=0$ in the potential, $\psi'$ is not continuous at $x=0$.
+In the region $0 < \left| x \right| < a$, we have
+\begin{align*}
+\psi'(x) & = \left(-B k_2 e^{-k_2 \left| x \right|} 
++ C k_2 e^{k_2 \left| x \right|} \right) \frac{\left| x \right|}{x} \\
+\Delta \psi' & \equiv \lim_{\eps \rightarrow 0} (\psi'(\eps) - \psi'(-\eps)) 
+= 2 k_2 (C - B)
+\end{align*}
+We also see from integrating the Schr\"{o}dinger equation over the region $(-\eps, \eps)$ that
+\begin{align*}
+-\frac{\hbar^2}{2m} \Delta \psi' + V_0 \psi(0) & = 0
+\end{align*}
+Thus,
+\begin{align*}
+2k_2 (C - B) & = \frac{2m}{\hbar^2} V_0 \psi(0) \\
+& = \frac{2m}{\hbar^2} V_0 (B+C) \\
+2k_2 (1 - e^{2k_2 a}) & = \frac{2m}{\hbar^2} V_0 (e^{2k_2 a} + 1)
+\end{align*}
+This equation can be solved for $k_2$, which, using the definition of $k_2$, yields the ground state energy $E$.
+\end{solution}
+
+
+
+
+\begin{solution}{2018.13}
+The wave function in each region is
+\begin{align*}
+\psi(x) & = \begin{dcases*}
+A e^{-ikx} & $x < 0$ \\
+B \cos (k' x) + C \sin (k' x) & $0 < x < a$ \\
+D e^{ik x} + E e^{-ik x} & $x > a$
+\end{dcases*} \\
+k & = \frac{\sqrt{2mE}}{\hbar} \\
+k' & = \frac{\sqrt{2m(E-V_0)}}{\hbar}
+\end{align*}
+$E e^{-ikx}$ corresponds to the incident wave, so the transmission coefficient is
+$\left| A \right|^2 / \left| E \right|^2$.
+Applying matching conditions at $x=0$ and $x=a$, we find that
+\begin{align*}
+A & = B + 0 \\
+-ikA & = k' C \\
+B \cos (k' a) + C \sin (k'a) & = D e^{ika} + E e^{-ika} \\
+-k'B \sin (k' a) + k' C \cos (k'a) & = ik D e^{ika} - ikE e^{-ika} \\
+\end{align*}
+Clearly, $B = A$ and $C = -i(k/k') A$. Then
+\begin{align*}
+D e^{ika} - E e^{-ika} 
+& = \frac{1}{ik} \left[ -k'B \sin (k' a) + k' C \cos (k'a) \right] \\
+2E e^{-ika} & = B \cos (k'a) + C \sin (k' a) 
+- \frac{1}{ik} \left[ -k'B \sin (k' a) + k' C \cos (k'a) \right] \\
+& = A \cos (k'a) - i \frac{k}{k'} A \sin (k' a) 
+- \frac{1}{ik} \left[ -k'A \sin (k' a) - i \frac{k}{k'} k' A \cos (k'a) \right] \\
+& = A \cos (k'a) - i \frac{k}{k'} A \sin (k' a) 
+-i \frac{k'}{k} A \sin (k' a) + A \cos (k'a) \\
+\frac{E}{A} & = e^{ika} \left[ \cos (k'a) - i \frac{k}{k'} \sin (k' a) \right] \\
+\frac{\left| E \right|^2}{\left| A \right|^2} & = \cos^2 (k'a) + \left( \frac{k}{k'} \right)^2 \sin^2 (k'a)
+\end{align*}
+Therefore, the transmission coefficient is 100\% whenever
+\begin{align*}
+1 & = \cos^2 (k'a) + \left( \frac{k}{k'} \right)^2 \sin^2 (k'a) \\
+\sin^2 (k' a) & = \left( \frac{k}{k'} \right)^2 \sin^2 (k'a) \\
+k & = k'
+\end{align*}
+Probably an algebra mistake somewhere.
+\end{solution}
+
+
+
+\begin{solution}{2017.12}
+\begin{enumerate}
+\item
+It should be even under parity
+
+\item
+I don't wanna
+
+\end{enumerate}
+
+\end{solution}
+
+
+
+
+\begin{solution}{2017.14}
+Since
+\begin{align*}
+\Ket{\psi(t=0)} & = \frac{1}{\sqrt{2}} \Ket{u_1} + \frac{1}{\sqrt{2}} \Ket{u_2}
+\end{align*}
+we have
+\begin{align*}
+\Ket{\psi(t)} & = \frac{1}{\sqrt{2}} e^{-iE_1 t/\hbar} \Ket{u_1} 
++ \frac{1}{\sqrt{2}} e^{-iE_2 t / \hbar} \Ket{u_2}
+\end{align*}
+Finally, we write $A$ in the energy eigenbasis,
+\begin{align*}
+\hat{A} & = x \left( \begin{array}{cc}
+1 & 0 \\
+0 & 1 \\
+\end{array} \right) + y \left( \begin{array}{cc}
+0 & 1 \\
+1 & 0 \\
+\end{array} \right) \\
+\hat{A} \Ket{\phi_1} & = x \Ket{\phi_1} + y \Ket{\phi_1} = a_1 \Ket{\phi_1} \\
+\hat{A} \Ket{\phi_2} & = x \Ket{\phi_2} - y \Ket{\phi_2} = a_2 \Ket{\phi_2} \\
+x & = \frac{a_1 + a_2}{2} \\
+y & = \frac{a_1 - a_2}{2} \\
+\hat{A} & = \frac{1}{2} \left( \begin{array}{cc}
+a_1 + a_2 & a_1 - a_2 \\
+a_1 - a_2 & a_1 + a_2 \\
+\end{array} \right)
+\end{align*}
+so that we have
+\begin{align*}
+\Braket{A(t)} & = \Braket{\psi(t) | \hat{A} | \psi(t)} \\
+& = \frac{1}{4} \left( \begin{array}{cc}
+e^{iE_1 t/\hbar} & e^{i E_2 t/\hbar} \\
+\end{array} \right) \left( \begin{array}{cc}
+a_1 + a_2 & a_1 - a_2 \\
+a_1 - a_2 & a_1 + a_2 \\
+\end{array} \right) \left( \begin{array}{c}
+e^{-iE_1 t/\hbar} \\
+e^{-iE_2 t/\hbar}
+\end{array} \right) \\
+& = \frac{1}{4} \left( \begin{array}{cc}
+e^{iE_1 t/\hbar} & e^{i E_2 t/\hbar} \\
+\end{array} \right) \left( \begin{array}{c}
+(a_1 + a_2) e^{-iE_1 t/\hbar} + (a_1 - a_2) e^{-iE_2 t/\hbar} \\
+(a_1 - a_2) e^{-iE_1 t/\hbar} + (a_1 + a_2) e^{-iE_2 t/\hbar} \\
+\end{array} \right) \\
+& = \frac{1}{4} \left[ (a_1 + a_2) + (a_1 - a_2) e^{i(E_1 - E_2) t/\hbar}
++ (a_1 - a_2) e^{-i(E_1 - E_2) t/\hbar} + (a_1 + a_2) \right] \\
+& = \frac{1}{2} \left[ (a_1 + a_2) + (a_1 - a_2) \cos \frac{(E_1 - E_2) t}{\hbar} \right] \\
+& = a_1 \cos \frac{(E_1 - E_2)t}{2\hbar} + a_2 \sin \frac{(E_1 - E_2)t}{2\hbar}
+\end{align*}
+
+
+\end{solution}
+
+
+
+\begin{solution}{2016.11}
+\begin{enumerate}
+\item
+Schr\"{o}dinger's equation reads
+\begin{align*}
+-\frac{\hbar^2}{2m} \psi'' - \frac{e^2}{4x} \psi & = E \psi
+\end{align*}
+Taking the hint's suggestion, we let $\psi(x) = u(x) e^{-kx}$ for $x>0$ 
+($\psi(x) = 0$ for $x<0$), so that
+\begin{align*}
+\psi'(x) & = u'(x) e^{-kx} - ku(x) e^{-kx} \\
+\psi''(x) & = u''(x) e^{-kx} - 2ku'(x) e^{-kx} + k^2 u(x) e^{-kx} \\
+Eu & = -\frac{\hbar^2}{2m} (u'' - 2ku' + k^2 u) - \frac{e^2}{4x} u
+\end{align*}
+
+
+\end{enumerate}
+
+\end{solution}
+
+
+
+
+\begin{solution}{2016.13}
+\begin{enumerate}
+\item
+First, we write the energy eigenstates in terms of the flavor eigenstates:
+\begin{align*}
+\left( \begin{array}{c}
+\Ket{\nu_e} \\
+\Ket{\nu_\mu} \\
+\end{array} \right) & = \left( \begin{array}{cc}
+\cos \theta & \sin \theta \\
+-\sin \theta & \cos \theta \\
+\end{array} \right) \left( \begin{array}{c}
+\Ket{\nu_1} \\
+\Ket{\nu_2} \\
+\end{array} \right) \\
+\left( \begin{array}{c}
+\Ket{\nu_1} \\
+\Ket{\nu_2} \\
+\end{array} \right) & = \left( \begin{array}{cc}
+\cos \theta & -\sin \theta \\
+\sin \theta & \cos \theta \\
+\end{array} \right) \left( \begin{array}{c}
+\Ket{\nu_e} \\
+\Ket{\nu_\mu} \\
+\end{array} \right)
+\end{align*}
+Then, since
+\begin{align*}
+H & = E_1 \Ket{\nu_1} \Bra{\nu_1} + E_2 \Ket{\nu_2} \Bra{\nu_2}
+\end{align*}
+we can write
+\begin{align*}
+H & = E_1 \left( \cos \theta \Ket{\nu_e} - \sin \theta \Ket{\nu_\mu} \right)
+\left( \cos \theta \Bra{\nu_e} - \sin \theta \Bra{\nu_\mu} \right) \\
+& + E_2 \left( \sin \theta \Ket{\nu_e} + \cos \theta \Ket{\nu_\mu} \right)
+\left( \sin \theta \Bra{\nu_e} + \cos \theta \Bra{\nu_\mu} \right) \\
+& = (E_1 + E_2) \Ket{\nu_e} \Bra{\nu_e} + (E_2 + E_1) \Ket{\nu_\mu} \Bra{\nu_\mu} \\
+& + (E_2 - E_1) \sin \theta \cos \theta \Ket{\nu_\mu} \Bra{\nu_e}
++ (E_2 - E_1) \sin \theta \cos \theta \Ket{\nu_e} \Bra{\nu_\mu}
+\end{align*}
+or, as a matrix in the flavor basis $\{\Ket{\nu_e}, \Ket{\nu_\mu}\}$,
+\begin{align*}
+H & = \left( \begin{array}{cc}
+E_1 + E_2 & (E_2 - E_1) \sin \theta \cos \theta \\
+(E_2 - E_1) \sin \theta \cos \theta & E_1 + E_2 \\
+\end{array} \right)
+\end{align*}
+Defining $a = E_1 + E_2$ and $b = (E_2 - E_1) \sin \theta \cos \theta$ for convenience, we then have that the time evolution operator in the flavor basis is
+\begin{align*}
+U(t, t_0 = 0) & = e^{-iH t/\hbar} \\
+& = \sum_{n=0}^\infty \frac{1}{n!} \left( -\frac{it}{\hbar} \right)^n \left( \begin{array}{cc}
+a & b \\
+b & a \\
+\end{array} \right)^n \\
+\left( \begin{array}{cc}
+a & b \\
+b & a \\
+\end{array} \right)^2 & = \left( \begin{array}{cc}
+a^2 + b^2 & 2ab \\
+2ab & a^2 + b^2
+\end{array} \right) \\
+2ab & = (E_2^2 - E_1^2) \sin 2\theta \\
+a^2 + b^2 & = (E_1 + E_2)^2 + \frac{1}{4} (E_2 - E_1)^2 \sin^2 2\theta
+\end{align*}
+
+
+\end{enumerate}
+
+\end{solution}
+
+
+
+\begin{solution}{2015.12}
+The ground state of $H_0$ is
+\begin{align*}
+\psi(x) & = \left( \frac{m\omega}{\pi \hbar} \right)^{1/4} e^{-m\omega x^2/2\hbar}
+\end{align*}
+In free space, Schr\"{o}dinger's equation is
+\begin{align*}
+i\hbar \pd{}{t} \Psi(x, t) & = -\frac{\hbar^2}{2m} \pd{^2}{x^2} \Psi(x,t)
+\end{align*}
+Taking the Fourier transform of this equation gives us
+\begin{align*}
+i\hbar \pd{}{t} \frac{1}{\sqrt{2\pi}} \intii \Psi(x, t) e^{-ikx} \, dx
+& = -\frac{\hbar^2}{2m} \frac{1}{\sqrt{2\pi}} \intii \left( \pd{^2}{x^2} \Psi(x, t) \right) e^{-ikx} \, dx \\
+i\hbar \pd{}{t} \Phi(k, t) & = \frac{\hbar^2 k^2}{2m} \Phi(k, t) \\
+\Phi(k, t) & = \Phi(k, 0) e^{-i\frac{\hbar k^2}{2m} t} \\
+\Phi(k, 0) & = \frac{1}{\sqrt{2\pi}} \intii \left( \frac{m\omega}{\pi \hbar} \right)^{1/4} e^{-m\omega x^2/2\hbar} e^{-ikx} \, dx
+\end{align*}
+To finish, you would do the integral for $\Phi(k, 0)$, then take the inverse Fourier transform of $\Phi(k, t)$ to get $\Psi(x, t)$.
+$\left| \Psi(x, t) \right|^2 dx$ would then be the desired probability.
+\end{solution}
+
+
+
+
+\begin{solution}{2015.14}
+\end{solution}
+
+
+
+\renewcommand{\kk}{\mathbf{k}}
+\begin{solution}{2014.11}
+\begin{enumerate}
+\item
+In this case,
+\begin{align*}
+f^{(1)} (\kk', \kk) & = -\frac{1}{4\pi} \frac{2m}{\hbar^2} \int d^3 x' \, e^{i(\kk - \kk') \cdot \xxx'} V(\xxx') \\
+& = -\frac{1}{4\pi} \frac{2m}{\hbar^2} \left[ A - \frac{\hbar^2}{4} B \right] \\
+\td{\sigma}{\Omega} & = \left[ \frac{1}{4\pi} \frac{2m}{\hbar^2} \left( A - \frac{\hbar^2}{4} B \right) \right]^2
+\end{align*}
+
+\item
+In this case,
+\begin{align*}
+f^{(1)} (\kk', \kk) & = -\frac{1}{4\pi} \frac{2m}{\hbar^2} \int d^3 x' \, e^{i(\kk - \kk') \cdot \xxx'} V(\xxx') \\
+& = -\frac{1}{4\pi} \frac{2m}{\hbar^2} \left[ A + \frac{\hbar^2}{4} B \right] \\
+\td{\sigma}{\Omega} & = \left[ \frac{1}{4\pi} \frac{2m}{\hbar^2} \left( A + \frac{\hbar^2}{4} B \right) \right]^2
+\end{align*}
+
+\item
+
+
+\end{enumerate}
+
+\end{solution}
+
+
+
+
+\begin{solution}{2014.13}
+\begin{enumerate}
+\item
+Using the ordering $\{ \Ket{00}, \Ket{01}, \Ket{10}, \Ket{11} \}$, the cNOT gate is written as
+\begin{align*}
+U_{cNOT} & = \left( \begin{array}{cccc}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0 \\
+\end{array} \right)
+\end{align*}
+
+\item
+The state after this operation is
+\begin{align*}
+\Ket{\psi_f} & = U_{cNOT} U_H \Ket{\psi_i} \\
+& = \left( \begin{array}{cccc}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0 \\
+\end{array} \right) \left( \begin{array}{c}
+1/\sqrt{2} \\
+0 \\
+1/\sqrt{2} \\
+0 \\
+\end{array} \right) \\
+& = \left( \begin{array}{c}
+1/\sqrt{2} \\
+0 \\
+0 \\
+1/\sqrt{2} \\
+\end{array} \right) \\
+& = \frac{1}{\sqrt{2}} \left( \Ket{00} + \Ket{11} \right)
+\end{align*}
+
+\item
+You are equally likely to measure 0 or 1 for the first bit.
+However, after making a measurement of the first bit, the second bit must be in the same state as the first bit.
+
+\end{enumerate}
+
+
+\end{solution}
+
+
+
+\begin{solution}{2013.12}
+
+\end{solution}
+
+
+
+
+\begin{solution}{2013.14}
+\begin{itemize}
+\item
+$N \eps_1$ \\
+
+\item
+$2\eps_1 + 2\eps_2 + \cdots + 2\eps_{N/2}$
+
+\item
+(a) $\Ket{\phi_1} \otimes \Ket{\phi_1} \otimes \Ket{\phi_1}$
+
+(b) Two fold degeneracy
+\begin{align*}
+\frac{1}{\sqrt{6}} \left( 
+\Ket{1\uparrow ; 1\downarrow ; 2\uparrow} 
++\Ket{1\downarrow ; 2\uparrow ; 1\uparrow} 
++\Ket{2\uparrow ; 1\uparrow ; 1\downarrow} 
+-\Ket{1\downarrow ; 1\uparrow ; 2\uparrow} 
+-\Ket{2\uparrow ; 1\downarrow ; 1\uparrow} 
+-\Ket{1\uparrow ; 2\uparrow ; 1\downarrow} 
+\right)
+\end{align*}
+
+
+\end{itemize}
+
+\end{solution}
+
+
+
+\end{document}

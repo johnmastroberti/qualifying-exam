@@ -1,0 +1,728 @@
+\documentclass[12pt]{article}
+
+\usepackage{jm}
+
+% This changes the first-level of an enumerated list to use letters instead of numbers
+\renewcommand{\theenumi}{\alph{enumi}}
+\begin{document}
+
+\title{Week 1}
+\author{John Mastroberti\\
+Qual Study}
+
+\maketitle
+
+\begin{solution}{2018.1}
+Since we need the constraint forces for part (c), we may as well work the problem using Lagrange multipliers from the start.
+In each case, the unconstrained Lagrangian is
+\begin{align*}
+\Lg & = \frac{1}{2} m (\dot{x}^2 + \dot{y}^2) - mgy
+\end{align*}
+
+\begin{enumerate}
+\item
+The constraint is $f(x,y) = y - ax^2 = 0$, so we have
+\begin{align*}
+\td{}{t} \pd{\Lg}{\dot{x}} - \pd{\Lg}{x} & = \lambda \pd{f}{x} \\
+m \ddot{x} & = -2\lambda a x \\
+\td{}{t} \pd{\Lg}{\dot{y}} - \pd{\Lg}{y} & = \lambda \pd{f}{y} \\
+m \ddot{y} + mg & = \lambda \\
+\end{align*}
+Let $\lambda' = \lambda/m$ to clean things up.
+Our system of equations is then
+\begin{align*}
+\ddot{x} & = -2\lambda' ax \\
+\ddot{y} & = -g + \lambda' \\
+y & = ax^2 \\
+\end{align*}
+The constraint tells us that
+\begin{align*}
+\dot{y} & = 2ax \dot{x} \\
+\ddot{y} & = 2a (\dot{x}^2 + x \ddot{x})
+\end{align*}
+so we have
+\begin{align*}
+2a (\dot{x}^2 + x \ddot{x}) & = g + \lambda' \\
+& = -g - \frac{\ddot{x}}{2ax} \\
+4a^2 x (\dot{x}^2 + x\ddot{x}) & = -2gax - \ddot{x}
+\end{align*}
+Thus, the equations of motion for $x$ and $y$ are
+\begin{align*}
+0 & = (1 + 4a^2 x^2) \ddot{x} + 4a^2 x \dot{x}^2 + 2gax \\
+y & = ax^2
+\end{align*}
+
+\item
+The constraint is $f(x,y) = x^2 + y^2 = r^2$, so we have
+\begin{align*}
+\td{}{t} \pd{\Lg}{\dot{x}} - \pd{\Lg}{x} & = \lambda \pd{f}{x} \\
+m \ddot{x} & = 2\lambda x \\
+\td{}{t} \pd{\Lg}{\dot{y}} - \pd{\Lg}{y} & = \lambda \pd{f}{y} \\
+m \ddot{y} + mg & = 2\lambda y \\
+\end{align*}
+This time, we use $\lambda' = 2\lambda/m$ to clean things up:
+\begin{align*}
+\ddot{x} & = \lambda' x \\
+\ddot{y} + g & = \lambda' y
+\end{align*}
+We then eliminate $\lambda'$ to get
+\begin{align*}
+\frac{\ddot{x}}{x} & = \frac{\ddot{y} + g}{y}
+\end{align*}
+At this point we're technically done with part (b); the equations of motion are
+\begin{align*}
+\frac{\ddot{x}}{x} & = \frac{\ddot{y} + g}{y} \\
+x^2 + y^2 & = r^2
+\end{align*}
+
+
+\item
+
+
+
+\end{enumerate}
+
+
+% In terms of both $x$ and $y$, the Lagrangian is
+% \begin{align*}
+% \Lg & = \frac{1}{2} m (\dot{x}^2 + \dot{y}^2) - mgy
+% \end{align*}
+% 
+% \begin{enumerate}
+% \item
+% With $y = ax^2$, we have $\dot{y} = 2ax \dot{x}$, so the Lagrangian reads
+% \begin{align*}
+% \Lg & = \frac{1}{2} m (\dot{x}^2 + 4a^2 x^2 \dot{x}^2) - mgax^2 \\
+% & = \frac{1}{2} m (1 + 4ax^2) \dot{x}^2 - mgax^2
+% \end{align*}
+% The equation of motion is then
+% \begin{align*}
+% \td{}{t} \pd{\Lg}{\dot{x}} & = \pd{\Lg}{x} \\
+% \td{}{t} \left( m (1 + 4ax^2) \dot{x} \right) - 4max \dot{x}^2 & = - 2mgax
+% \end{align*}
+% 
+% 
+% \end{enumerate}
+% 
+
+
+\end{solution}
+
+
+
+\newcommand{\oo}{\boldsymbol{\omega}}
+\newcommand{\ee}{\mathbf{\hat{e}}}
+\begin{solution}{2018.3}
+Note: this problem was covered in the P521 lecture on September 21, 2020.
+\begin{enumerate}
+\item
+We use
+\begin{align*}
+m \left( \td{^2 \rrr}{t^2} \right)_{body} & = \FF_e - m \left( \td{^2 \mathbf{a}}{t^2} \right)_{inertial}
+- 2m \oo \times \left( \td{\rrr}{t} \right)_{body}
+- m \oo \times (\oo \times \rrr) - m \td{\oo}{t} \times \rrr
+\end{align*}
+To first order in $\oo$, this is
+\begin{align*}
+m \ddot{\rrr} & = \FF_e - 2m \oo \times \dot{\rrr}
+\end{align*}
+In the given coordinates,
+\begin{align*}
+\oo & = \omega ( \cos \theta \ee_3 - \sin \theta \ee_1 ) \\
+\FF_e & = -mg \ee_3
+\end{align*}
+We can then split the equation of motion out into its components:
+\begin{align*}
+\ddot{x} & = 2\dot{y} \omega \cos \theta \\
+\ddot{y} & = -2\dot{x} \omega \cos \theta - 2\dot{z} \omega \sin \theta \\
+\ddot{z} & = -g + 2 \dot{y} \omega \sin \theta
+\end{align*}
+Working order by order, we write
+\begin{align*}
+\rrr(t) & = \rrr_0(t) + \omega \tau \rrr_1(t) + \OO(\omega^2)
+\end{align*}
+where $\rrr_0$ and $\rrr_1$ are independent of $\omega$.
+The order $\omega^0$ equations read
+\begin{align*}
+\ddot{x}_0 & = 0 \\
+\ddot{y}_0 & = 0 \\
+\ddot{z}_0 & = -g \\
+\rrr_0(t) & = \left( v_0 t - \frac{g}{2} t^2 \right) \ee_3
+\end{align*}
+The time taken to reach the ground is then
+\begin{align*}
+\tau & = \frac{2v_0}{g}
+\end{align*}
+The order $\omega^1$ equations read
+\begin{align*}
+\omega \tau \ddot{x}_1 & = 2\dot{y}_0 \omega \cos \theta \\
+\omega \tau \ddot{y}_1 & = -2\dot{x}_0 \omega \cos \theta - 2\dot{z}_0 \omega \sin \theta \\
+\omega \tau \ddot{z}_1 & = 2\dot{y}_0 \omega \sin \theta
+\end{align*}
+Since $x_0(t) = y_0(t) = 0$, this simplifies to
+\begin{align*}
+\omega \tau \ddot{x}_1 & = 0 \\
+\omega \tau \ddot{y}_1 & = -2(v_0 - gt) \omega \sin \theta \\
+\omega \tau \ddot{z}_1 & = 0 \\
+y_1(t) & = y_1(0) + \dot{y}_1(0) t - \frac{1}{\tau} \left( v_0 t^2 - \frac{g}{3} t^2 \right) \sin \theta
+\end{align*}
+Since $y(0) = 0$ and $\dot{y}(0) = 0$, the same must be true of $y_1$, giving us
+\begin{align*}
+y_1(t) & = - \frac{1}{\tau} \left( v_0 t^2 - \frac{g}{3} t^2 \right) \sin \theta
+\end{align*}
+Put all together, this gives us
+\begin{align*}
+\rrr(t) & = \left( v_0 t - \frac{g}{2} t^2 \right) \ee_3
+- \left( v_0 t^2 - \frac{g}{3} t^2 \right) \omega \sin \theta \ee_2 + \OO(\omega^2)
+\end{align*}
+Therefore, the Coriolis deflection when the particle hits the ground is
+\begin{align*}
+\rrr(\tau) & = - \left( v_0 \tau^2 - \frac{g}{3} \tau^2 \right) \omega \sin \theta \ee_2 \\
+& = -\frac{4}{3} \frac{v_0^3}{g^2} \omega \sin \theta \ee_2
+\end{align*}
+
+\item
+If the particle is dropped from rest at height $h$ instead, we have
+\begin{align*}
+\rrr_0(t) & = \left( h - \frac{g}{2} t^2 \right) \ee_3 \\
+\tau & = \sqrt{\frac{2h}{g}} \\
+\omega \tau \ddot{y}_1 & = -2 (-gt) \omega \sin \theta \\
+y_1(t) & = \frac{gt^3}{3\tau} \omega \sin \theta \\
+\rrr(t) & = \left( h - \frac{g}{2} t^2 \right) \ee_3 + \frac{1}{3} gt^3 \omega \sin \theta + \OO(\omega^2)
+\end{align*}
+and the Coriolis deflection is
+\begin{align*}
+\rrr(\tau) & = \frac{1}{3} g \left( \frac{2h}{g} \right)^{3/2} \omega \sin \theta \ee_2
+\end{align*}
+
+
+
+
+
+\end{enumerate}
+
+\end{solution}
+
+
+
+
+\begin{solution}{2017.2}
+Let $F(t)$ be the force applied to the sphere by the block via friction at time $t$.
+Newton's laws tell us
+\begin{align*}
+m \ddot{x} & = F(t) \\
+M \ddot{X} & = -F(t) + f(t)
+\end{align*}
+Additionally, by conservation of energy, the total kinetic energy of the system must be equal to the work done on the system.
+The total kinetic energy is given by
+\begin{align*}
+T & = \frac{1}{2} M \dot{X}^2 + \frac{1}{2} m \dot{x}^2 + \frac{1}{2} I \omega^2 \\
+& = \frac{1}{2} M \dot{X}^2 + \frac{1}{2} m \dot{x}^2 
++ \frac{1}{2} \left( \frac{2}{5} m R^2 \right) \left( \frac{\dot{x}}{R} \right)^2 \\
+& = \frac{1}{2} M \dot{X}^2 + \frac{7}{10} m \dot{x}^2 
+\end{align*}
+while the work done on the system between time zero and time $t$ is
+\begin{align*}
+W & = \int \FF \cdot d\rrr = \int_0^t f(t') \dot{X}(t') \, dt'
+\end{align*}
+This gives us a system of equations for $x(t)$ and $X(t)$:
+\begin{align*}
+M \ddot{X} + m \ddot{x} & = f(t) \\
+\frac{1}{2} M \dot{X}^2 + \frac{7}{10} m \dot{x}^2 & = \int_0^t f(t') \dot{X}(t') \, dt'
+\end{align*}
+From the first equation, and the fact that $\dot{x}(0) = \dot{X}(0) = 0$, we have
+\begin{align*}
+M\dot{X} + m \dot{x} & = - \frac{a}{\omega} \cos \omega t
+\end{align*}
+If we differentiate both sides of the second equation, we get
+\begin{align*}
+M \dot{X} \ddot{X} + \frac{7}{5} m \dot{x} \ddot{x} & = f(t) \dot{X}
+\end{align*}
+Substituting what we know about $\dot{X}$ and $\ddot{X}$, we have
+\begin{align*}
+\left( -m \dot{x} - \frac{a}{\omega} \cos \omega t \right) 
+\frac{1}{M} (f(t) - m \ddot{x}) + \frac{7}{5} m \dot{x} \ddot{x}
+& = -f(t) \frac{1}{M} \left( m \dot{x} + \frac{a}{\omega} \cos \omega t \right) \\
+\left( m \dot{x} + \frac{a}{\omega} \cos \omega t \right) \frac{m}{M} \ddot{x}
++ \frac{7}{5} m \dot{x} \ddot{x} & = 0 \\
+\left( \frac{m^2}{M} + \frac{7}{5} m \right) \dot{x} & = -\frac{a}{\omega} \cos \omega t \\
+\left( \frac{m^2}{M} + \frac{7}{5} m \right) x & = -\frac{a}{\omega^2} \sin \omega t \\
+\end{align*}
+
+\end{solution}
+
+
+
+\begin{solution}{2017.15}
+In the rest frame of the pion, we have
+\begin{align*}
+\left( \begin{array}{c}
+m_\pi \\
+0 \\
+\end{array} \right) & = \left( \begin{array}{c}
+p_\nu' \\
+p_\nu' \\
+\end{array} \right) + \left( \begin{array}{c}
+E_\mu \\
+-p_\nu' \\
+\end{array} \right) \\
+E_\mu^2 & = m_\mu^2 + (p_\nu')^2 \\
+& = (m_\pi - p_\nu)^2 \\
+& = m_\pi^2 - 2m_\pi p_\nu' + (p_\nu')^2 \\
+p_\nu' & = \frac{m_\pi^2 - m_\mu^2}{2m_\pi}
+\end{align*}
+In the lab frame, the neutrinos will clearly have the largest possible energy if they are emitted in the same direction as the momentum of the pion beam.
+Therefore, in the lab frame, the four momentum of the neutrinos with maximum energy is
+\begin{align*}
+p_\nu^\alpha & = \left( \begin{array}{cccc}
+\gamma & \gamma \beta & 0 & 0 \\
+\gamma \beta & \gamma & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+\end{array} \right) \left( \begin{array}{c}
+p_\nu' \\
+p_\nu' \\
+0 \\
+0 \\
+\end{array} \right) \\
+& = \gamma (1 + \beta) \left( \begin{array}{c}
+p_\nu' \\
+p_\nu' \\
+0 \\
+0 \\
+\end{array} \right)
+\end{align*}
+Finally, we must determine what $\gamma$ is for the pion beam.
+Since 10 GeV $\gg m_\pi$, we may write
+\begin{align*}
+10 \mathrm{GeV} & \approx p_\pi = m_\pi \gamma \beta
+\end{align*}
+This gives us $\gamma \beta \approx 100$, which implies that $\beta \approx 1$.
+Thus, the maximum energy that the neutrinos can have in the lab frame is
+\begin{align*}
+E_\nu & \approx (100 + 100) \frac{m_\pi^2 - m_\mu^2}{2m_\pi} \\
+& \approx 6.0 \mathrm{GeV}
+\end{align*}
+
+\end{solution}
+
+
+\begin{solution}{2016.1}
+\begin{enumerate}
+\item
+The force $F$ is the force resulting from the potential
+\begin{align*}
+V & = \frac{1}{2} k r^2 = \frac{k}{2} (\rho^2 + z^2)
+\end{align*}
+Also, the kinetic energy of the particle can be written as
+\begin{align*}
+T & = \frac{m}{2} \left( \dot{z}^2 + R^2 \dot{\phi}^2 \right)
+\end{align*}
+Thus, the Lagrangian for this system is
+\begin{align*}
+\Lg & = T - V 
+= \frac{m}{2} \left( \dot{z}^2 + R^2 \dot{\phi}^2 \right) - \frac{k}{2} (R^2 + z^2)
+\end{align*}
+
+\item
+Lagrange's equations read
+\begin{align*}
+\td{}{t} \left( \pd{\Lg}{\dot{\phi}} \right) & = \pd{\Lg}{\phi} \\
+0 & = \td{}{t} \left( mR^2 \dot{\phi} \right) \\
+& = mR^2 \ddot{\phi} \\
+\td{}{t} \left( \pd{\Lg}{\dot{z}} \right) & = \pd{\Lg}{z} \\
+-kz & = \td{}{t} (m \dot{z}) = m\ddot{z}
+\end{align*}
+
+\item
+Cleaning things up a bit, we have
+\begin{align*}
+0 & = mR^2 \ddot{\phi} \\
+0 & = m\ddot{z} + kz
+\end{align*}
+Since $\td{}{t} (mR^2 \dot{\phi}) = 0$, we identify $mR^2 \dot{\phi}$ as a conserved quantity, and recognize that it is the angular momentum of the particle.
+Defining $\omega^2 = k/m$, the $z$ equation gives us
+\begin{align*}
+z(t) & = A \cos \omega t + B \sin \omega t
+\end{align*}
+where $A$ and $B$ are determined by the initial conditions.
+Thus, the particle exhibits harmonic oscillation around $z = 0$, and it revolves around the cylinder at a constant angular velocity.
+
+\end{enumerate}
+
+\end{solution}
+
+
+
+\begin{solution}{2016.3}
+\begin{enumerate}
+\item
+Let the equilibrium separation between the light atoms and the heavy atom be $L$.
+The total kinetic energy is clearly
+\begin{align*}
+T & = \frac{1}{2} \left( M \dot{X}^2 + m \dot{x}_1^2 + m \dot{x}_2^2 \right)
+\end{align*}
+while the total potential energy is
+\begin{align*}
+V & = \frac{k}{2} \left( (X - x_1 - L)^2 + (x_2 - X - L)^2 \right)
+\end{align*}
+where I have assumed that $x_1 < X < x_2$.
+
+\item
+Let
+\begin{align*}
+x_1 & = x_1^0 + \eta_1 \\
+x_2 & = x_2^0 + \eta_2 \\
+X   & =   X^0 + \eta_3 \\
+\end{align*}
+where $x_1^0$, $x_2^0$, and $X^0$ are the equilibrium values of $x_1$, $x_2$, and $X$, and $\eta_i$ are their fluctuations from equilibrium.
+We then re-write the kinetic and potential energy as
+\begin{align*}
+T & = \frac{M}{2} \dot{\eta}_3^2 + \frac{m}{2} (\dot{\eta}_1^2 + \dot{\eta}_2^2) \\
+V & = \frac{k}{2} \left( (\eta_3 - \eta_1)^2 + (\eta_2 - \eta_3)^2 \right) \\
+& = \frac{k}{2} \left( 2\eta_3^2 + \eta_1^2 + \eta_2^2 - 2\eta_1 \eta_3 - 2\eta_2 \eta_3 \right) \\
+\end{align*}
+Thus, the mass and potential matrices are
+\begin{align*}
+\underline{m} & = \left( \begin{array}{ccc}
+m & 0 & 0 \\
+0 & m & 0 \\
+0 & 0 & M \\
+\end{array} \right) \\
+\underline{v} & = \left( \begin{array}{ccc}
+k & 0 & -k \\
+0 & k & -k \\
+-k & -k & 2k \\
+\end{array} \right)
+\end{align*}
+The normal mode frequencies are then found via
+\begin{align*}
+0 & = \det ( \underline{v} - \omega^2 \underline{m} ) \\
+& = \det \left( \begin{array}{ccc}
+k - \omega^2 m & 0 & -k \\
+0 & k - \omega^2 m & -k \\
+-k & -k & 2k - \omega^2 M \\
+\end{array} \right) \\
+& = (k - \omega^2 m) ((k - \omega^2 m) (2k - \omega^2 M) - k^2) - k(k(k - \omega^2 m)) \\
+& = (k - \omega^2 m) \left[ (k - \omega^2 m) (2k - \omega^2 M) - k^2 - k^2 \right] \\
+& = (k - \omega^2 m) \left[ \omega^4 m M - 2k \omega^2 m - k \omega^2 M \right] \\
+& = \omega^2 (k - \omega^2 m) (m M \omega^2 - 2km - kM) \\
+\omega^2 & = 0, \frac{k}{m}, \frac{2km + kM}{mM}
+\end{align*}
+The frequency $\omega = 0$ corresponds to the molecule moving with constant velocity and not oscillating.
+The frequency $\omega^2 = k/m$ corresponds to the two bonds oscillating in phase (i.e. $x_2 - X = X - x_1$) because this case is exactly analogous to the particles of mass $m$ being attached to a fixed point by a spring with spring constant $k$.
+Therefore, the last frequency must correspond to the atoms oscillating out of phase (i.e. $x_2 - X$ is maximized when $X - x_1$ is minimized).
+
+\end{enumerate}
+
+\end{solution}
+
+
+
+\begin{solution}{2015.2}
+\begin{enumerate}
+\item
+The energy of the particle at any time is 
+\begin{align*}
+E & = \frac{1}{2} m v^2 + \frac{\beta}{r^2}
+\end{align*}
+This is a conserved quantity, and it is equal to the initial energy $E_0 = \frac{1}{2} m v_0^2$.
+Additionally, the angular momentum of the particle is
+\begin{align*}
+\ell & = mrv \sin \theta
+\end{align*}
+where $\theta$ is the angle between the radius vector and the velocity vector.
+This is also a conserved quanitity, and it is equal to the initial angular momentum $mbv_0$.
+Since $\rrr$ and $\vv$ are perpendicular when the particle makes its closest approach, we have a system equations for $R_{min}$, the distance of closest approach, and $v_{min}$, the speed of the particle at closest approach:
+\begin{align*}
+E & = \frac{1}{2} mv_{min}^2 + \frac{\beta}{R_{min}^2} \\
+R_{min} v_{min} & = b v_0 \\
+v_{min} & = \frac{bv_0}{R_{min}} \\
+\frac{1}{2} mv_0^2 & = \frac{1}{2} m \left( \frac{bv_0}{R_{min}} \right)^2 + \frac{\beta}{R_{min}^2} \\
+& = \frac{1}{2} m v_0^2 \frac{b^2}{R_{min}^2} + \frac{\beta}{R_{min}^2} \\
+E & = E \frac{b^2}{R_{min}^2} + \frac{\beta}{R_{min}^2} \\
+1 & = \frac{b^2 + \beta/E}{R_{min}^2} \\
+R_{min} & = \sqrt{b^2 + \frac{\beta}{E}}
+\end{align*}
+
+\item
+The speed of the particle when it makes its closest approach is then
+\begin{align*}
+v_{min} & = bv_0 \left( b^2 + \frac{\beta}{E} \right)^{-1/2}
+\end{align*}
+
+
+
+\end{enumerate}
+
+\end{solution}
+
+
+
+\begin{solution}{2015.15}
+\begin{enumerate}
+\item
+This is not possible. It is clearly energetically forbidden in the rest frame of the electron.
+
+\item
+This is also not possible. Since the photon's energy is frame dependent, there exists a reference frame where the energy of the photon is less than the rest mass of an electron, making the process energetically forbidden.
+
+\end{enumerate}
+
+\end{solution}
+
+
+
+\begin{solution}{2014.1}
+\begin{enumerate}
+\item
+Let the horizontal position of $m_1$ be $x_1$, and let the angle between the pendulum arm and the vertical be $\phi$.
+Denoting the $x$ and $y$ coordinates of $m_2$ as $x_2$ and $y_2$, we have
+\begin{align*}
+T & = \frac{1}{2} m_1 \dot{x}_1^2 + \frac{1}{2} m_2 (\dot{x}_2^2 + \dot{y}_2^2)
+\end{align*}
+We can write $x_2$ and $y_2$ in terms of $x_1$ and $\phi$:
+\begin{align*}
+x_2 & = x_1 + \ell \sin \phi \\
+y_2 & = -\ell \cos \phi
+\end{align*}
+(taking the zero point for $y$ to be at the height of $m_1$), so
+\begin{align*}
+\dot{x}_2 & = \dot{x}_1 + \ell \dot{\phi} \cos \phi \\
+\dot{y}_2 & = \ell \dot{\phi} \sin \phi
+\end{align*}
+Additionally, the potential energy of the system is
+\begin{align*}
+V & = m_2 g y_2 = -m_2 g \ell \cos \phi
+\end{align*}
+Thus, the Lagrangian for this system is
+\begin{align*}
+\Lg & = \frac{1}{2} m_1 \dot{x}_1^2 
++ \frac{1}{2} m_2 \left[ \left( \dot{x}_1 + \ell \dot{\phi} \cos \phi \right)^2 + (\ell \dot{\phi} \sin \phi)^2 \right]
++ m_2 g \ell \cos \phi
+\end{align*}
+
+\item
+The equations of motion are then
+\begin{align*}
+\td{}{t} \left( \pd{\Lg}{\dot{x}_1} \right) & = \pd{\Lg}{x_1} \\
+0 & = \td{}{t} \left[ m_1 \dot{x}_1 + m_2 \left( \dot{x}_1 + \ell \dot{\phi} \cos \phi \right) \right] \\
+\td{}{t} \left( \pd{\Lg}{\dot{\phi}} \right) & = \pd{\Lg}{\phi} \\
+\pd{\Lg}{\phi} & = 
+m_2 \left[ \left( \dot{x}_1 + \ell \dot{\phi} \cos \phi \right) (-\ell \dot{\phi} \sin \phi)
++ (\ell \dot{\phi})^2 \sin \phi \cos \phi
+\right] - m_2 g \ell \sin \phi \\
+& = -m_2 \ell \dot{x}_1 \dot{\phi} \sin \phi - m_2 g\ell \sin \phi \\
+\pd{\Lg}{\dot{\phi}} & = m_2 \left[ \left( \dot{x}_1 + \ell \dot{\phi} \cos \phi \right) \ell \cos \phi
++ \dot{\phi} \ell^2 \sin^2 \phi \right] \\
+& = m_2 \left[ \dot{x}_1 \ell \cos \phi + \ell^2 \dot{\phi} \right] \\
+\td{}{t} \left( \pd{\Lg}{\dot{\phi}} \right)
+& = m_2 \left[ \ddot{x}_1 \ell \cos \phi - \dot{x}_1 \ell \dot{\phi} \sin \phi + \ell^2 \ddot{\phi} \right] \\
+-g\ell \sin \phi & = \ddot{x}_1 \ell \cos \phi + \ell^2 \ddot{\phi}
+\end{align*}
+
+\item
+TODO: normal modes
+
+\end{enumerate}
+
+\end{solution}
+
+
+
+
+\begin{solution}{2014.3}
+Assuming a central potential, we have
+\begin{align*}
+\phi & = \phi_0 \pm \frac{\ell}{\sqrt{2m}} \int dr \, r^{-2} [E - V_{eff}(r)]^{-1/2}
+\end{align*}
+where $V_{eff}(r) = V(r) + \frac{\ell^2}{2mr^2}$. Using $u = 1/r$, we have
+\begin{align*}
+du & = -\frac{1}{r^2} dr \\
+\phi & = \phi_0 \pm \frac{\ell}{\sqrt{2m}} \int du \, \left( E - V(r=1/u) - \frac{\ell^2}{2m} u^2 \right)^{-1/2} \\
+& = \phi_0 \pm \int du \, \left( \frac{2mE}{\ell^2} - \frac{2m}{\ell^2} V(u) - u^2 \right)^{-1/2}
+\end{align*}
+If the trajectory is a log spiral of the form $r = k e^{\alpha \phi}$, then
+\begin{align*}
+\phi & = \frac{1}{\alpha} \log \frac{r}{k}
+\end{align*}
+Therefore, we seek $V$ such that
+\begin{align*}
+\frac{1}{\alpha} \log \frac{r}{k} = -\frac{1}{\alpha} \log ku 
+& = \pm \int du \, \left( \frac{2mE}{\ell^2} - \frac{2m}{\ell^2} V(u) - u^2 \right)^{-1/2}
+\end{align*}
+Differentiating both sides with respect to $u$ yields
+\begin{align*}
+-\frac{1}{\alpha u} & = \pm \left( \frac{2mE}{\ell^2} - \frac{2m}{\ell^2} V(u) - u^2 \right)^{-1/2} \\
+\frac{1}{\alpha^2 u^2} & = \frac{2mE}{\ell^2} - \frac{2m}{\ell^2} V(u) - u^2 \\
+\frac{2m}{\ell^2} V(u) & = \frac{2mE}{\ell^2} - \frac{1}{\alpha^2 u^2} - u^2 \\
+V(r) & = E - \frac{\ell^2}{2m \alpha^2} r^2 - \frac{\ell^2}{2mr^2}
+\end{align*}
+Therefore, the necessary force law is
+\begin{align*}
+\FF & = -\del V = \frac{\ell^2}{m} \left( \frac{r}{\alpha^2} - \frac{1}{r^3} \right) \rr
+\end{align*}
+
+\end{solution}
+
+
+\begin{solution}{2013.2}
+Let the angle each pendulum makes with the vertical be $\phi_i$.
+Taking $y = 0$ at the tops of the pendulums, we have
+\begin{align*}
+x_i & = C_i + L \sin \phi_i \\
+y_i & = -L \cos \phi_i \\
+\dot{x}_i & = L \dot{\phi}_i \cos \phi_i \\
+\dot{y}_i & = L \dot{\phi}_i \sin \phi_i
+\end{align*}
+This lets us write the kinetic and potential energy as
+\begin{align*}
+T & = \frac{1}{2} \sum_{i=1}^3 m \left[ 
+\left( L \dot{\phi}_i \cos \phi_i \right)^2 + \left( L \dot{\phi}_i \sin \phi_i \right)^2 \right] \\
+V & = -\sum_{i=1}^3 mgL \cos \phi_i + 
+\frac{1}{2} k \left[ (\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} - L_{12})^2 
++ (\sqrt{(x_3 - x_2)^2 + (y_3 - y_2)^2} - L_{23})^2 \right]
+\end{align*}
+where $L_{12}$ and $L_{13}$ are the equilibrium lengths of the springs connecting pendulums 1 and 2 and pendulums 2 and 3.
+
+Writing $\phi_i = \phi_i^0 + \eta_i$, where $\phi_i^0$ are the equilibrium values of the $\phi_i$'s, we have to second order in the displacements from equilibrium
+\begin{align*}
+T & = \frac{1}{2} \sum_{i=1}^3 m \left[ 
+\left( L \dot{\eta}_i \cos (\phi_i^0 + \eta_i) \right)^2 + \left( L \dot{\eta}_i \sin (\phi_i^0 + \eta_i) \right)^2 \right] \\
+& \approx \frac{1}{2} \sum_{i=1}^3 m \left[ L^2 \dot{\eta}_i^2 (\cos^2 \phi_i^0 + \sin^2 \phi_i^0) \right] \\
+& = \frac{1}{2} \sum_{i=1}^3 m L^2 \dot{\eta}_i^2 \\
+V & = -\sum_{i=1}^3 mgL \cos (\phi_i^0 + \eta_i) \\
+& + \frac{1}{2} k \left[ \left( \sqrt{(C_2 + L \sin (\phi_2^0 + \eta_2) 
+- C_1 - L \sin (\phi_1^0 + \eta_1))^2 
++ (-L \cos (\phi_2^0 + \eta_2) + L \cos (\phi_1^0 + \eta_1))^2} - L_{12} \right)^2 \right. \\
+& \left.
++ \left( \sqrt{(C_3 + L \sin (\phi_3^0 + \eta_3) 
+- C_2 - L \sin (\phi_2^0 + \eta_2))^2 
++ (-L \cos (\phi_3^0 + \eta_3) + L \cos (\phi_2^0 + \eta_2))^2} - L_{23} \right)^2 \right]
+% & \approx -\sum_{i=1}^3 mgL (\cos (\phi_i^0) (1-\eta_i^2/2) - \eta_i \sin \phi_i^0) \\
+% & + \frac{1}{2} k \left[ \left( 
+% \sqrt{(x_2^0 - L\sin \phi_2^0 \eta_2^2/2 + L \eta_2 \cos \phi_2^0
+% - x_1^0 + L\sin \phi_1^0 \eta_1^2/2 - L \eta_1 \cos \phi_1^0)^2
+% + 
+\end{align*}
+To proceed, note that the equilibrium values of $\phi_i$ cannot be determined from the information given in the problem.
+Therefore, I assume that the normal mode frequencies do not depend on them, allowing me to choose $\phi_i^0 = 0$ for convenience.
+To second order in the $\eta_i$'s, we then have
+\begin{align*}
+V & \approx -mgL \sum_{i=1}^3 \left( 1 + \frac{1}{2} \eta_i^2 \right) \\
+& + \frac{k}{2} \left[ \left( \sqrt{ (C_2 + L \eta_2 - C_1 - L\eta_1)^2 
++ (-L + L\eta_2^2/2 + L - L\eta_1^2/2)^2} - L_{12} \right)^2 \right. \\
+& + \left. \left( \sqrt{ (C_3 + L \eta_3 - C_2 - L\eta_2)^2 
++ (-L + L\eta_3^2/2 + L - L\eta_2^2/2)^2} - L_{23} \right)^2 \right]
+\end{align*}
+Note that using my assumption about $\phi_i^0$, we have $L_{12} = C_2 - C_1$ and $L_{23} = C_3 - C_2$.
+Also, we only have to work to linear order inside the parenthesis to retain second order in the $\eta_i$'s overall.
+Continuing, we have
+\begin{align*}
+V & \approx \mathrm{const} + \frac{1}{2} mgL \sum_{i=1}^3 \eta_i^2 \\
+& + \frac{k}{2} \left[ \left( \sqrt{ L_{12}^2 + 2L_{12} L (\eta_2 - \eta_1)} - L_{12} \right)^2 \right. \\
+& + \left. \left( \sqrt{ L_{23}^2 + 2L_{23} L (\eta_3 - \eta_2)} - L_{23} \right)^2 \right] \\
+& \approx \mathrm{const} + \frac{1}{2} mgL \sum_{i=1}^3 \eta_i^2
++ \frac{k}{2} \left[ (L_{12} + L (\eta_2 - \eta_1) - L_{12})^2
++ (L_{23} + L (\eta_3 - \eta_2) - L_{23})^2 \right] \\
+& \approx \mathrm{const} + \frac{1}{2} mgL \sum_{i=1}^3 \eta_i^2
++ \frac{1}{2} kL^2 \left[ \eta_2^2 - 2\eta_1 \eta_2 + \eta_1^2
++ \eta_3^2 - 2\eta_3 \eta_2 + \eta_2^2 \right]
+\end{align*}
+Thus,
+\begin{align*}
+\underline{m} & = \left( \begin{array}{ccc}
+mL^2 & 0 & 0 \\
+0 & mL^2 & 0 \\
+0 & 0 & mL^2 \\
+\end{array} \right) \\
+\underline{v} & = \left( \begin{array}{ccc}
+mgL + kL^2 & kL^2 & 0 \\
+kL^2 & mgL + 2kL^2 & kL^2 \\
+0 & kL^2 & mgL + kL^2 \\
+\end{array} \right)
+\end{align*}
+and the normal mode frequencies are found with
+\begin{align*}
+0 & = \det [ \underline{v} - \omega^2 \underline{m} ] \\
+& = \det \left( \begin{array}{ccc}
+mgL + kL^2 - \omega^2 mL^2 & kL^2 & 0 \\
+kL^2 & mgL + 2kL^2 - \omega^2 mL^2 & kL^2 \\
+0 & kL^2 & mgL + kL^2 - \omega^2 mL^2 \\
+\end{array} \right) \\
+& = -(mL^2 \omega^2 - mgL) (mL^2 \omega^2 - 3kL^2 - mgL) (mL^2 \omega^2 - mgL - kL^2) \\
+\omega^2 & = \frac{g}{L}, \, 3 \frac{k}{m} + \frac{g}{L}, \, \frac{k}{m} + \frac{g}{L}
+\end{align*}
+
+\end{solution}
+
+
+
+\begin{solution}{2013.15}
+Let $\beta_1$ refer to the velocity of the first particle, $\beta_2$ to the velocity of the first two particles after they merge, and $\beta_3$ to the velocity of the final particle.
+Considering the four momenta before and after the first collision, we have
+\begin{align*}
+\left( \begin{array}{c}
+\gamma_1 m \\
+\gamma_1 \beta_1 m \\
+\end{array} \right) + \left( \begin{array}{c}
+m \\
+0 \\
+\end{array} \right) & = \left( \begin{array}{c}
+\gamma_2 m_2 \\
+\gamma_2 \beta_2 m_2 \\
+\end{array} \right) \\
+(\gamma_1 +1) m & = \gamma_2 m_2 \\
+\gamma_1 \beta_1 m & = \gamma_2 \beta_2 m_2
+\end{align*}
+Considering the four momenta before and after the second collision, we have
+\begin{align*}
+\left( \begin{array}{c}
+\gamma_2 m_2 \\
+\gamma_2 \beta_2 m_2 \\
+\end{array} \right) + \left( \begin{array}{c}
+m \\
+0 \\
+\end{array} \right) & = \left( \begin{array}{c}
+\gamma_3 M \\
+\gamma_3 \beta_3 M \\
+\end{array} \right) \\
+(\gamma_1 + 2) m & = \gamma_3 M \\
+\gamma_1 \beta_1 m & = \gamma_3 \beta_3 M \\
+(\gamma_1 +2) m & = \gamma_3 \frac{\gamma_1 \beta_1 m}{\gamma_3 \beta_3} \\
+\gamma_1 + 2 & = \gamma_1 \frac{\beta_1}{\beta_3} \\
+\beta_3 & = \beta_1 \frac{\gamma_1}{\gamma_1 + 2} \\
+\beta_3^2 & = \frac{\beta_1^2 \gamma_1^2}{(\gamma_1 + 2)^2} \\
+& = \frac{\gamma_1^2 - 1}{(\gamma_1 + 2)^2} \\
+\gamma_3 & = \left( 1 - \beta_3^2 \right)^{-1/2} \\
+M & = m \frac{\gamma_1 + 2}{\gamma_3} \\
+\end{align*}
+
+\begin{enumerate}
+\item
+Using $\beta_1 = 0.8$, we have
+\begin{align*}
+\gamma_1 & = \frac{5}{3} \\
+\beta_3 & = \frac{4}{11} \\
+\gamma_3 & = \frac{11}{\sqrt{105}} \\
+\frac{M}{m} & = \frac{\gamma_1 + 2}{\gamma_3} = \frac{\sqrt{105}}{3} \approx 3.4156
+\end{align*}
+
+\item
+$V/c$ is just $\beta_3$, which is $4/11$.
+
+\end{enumerate}
+
+
+\end{solution}
+
+
+
+
+
+
+
+
+
+
+\end{document}

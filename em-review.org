@@ -1,0 +1,138 @@
+#+TITLE: Electromagnetism Review
+#+LATEX_HEADER: \usepackage{jm}
+#+LATEX_HEADER: \renewcommand{\HH}{\mathbf{H}}
+#+LATEX_HEADER: \newcommand{\DD}{\mathbf{D}}
+#+LATEX_HEADER: \newcommand{\MM}{\mathbf{M}}
+#+LATEX_HEADER: \newcommand{\PP}{\mathbf{P}}
+#+STARTUP: latexpreview
+
+* Surface Charge Density <-> Electric Potential
+\begin{align*}
+\sigma & = -\eps_0 \pd{\Phi}{\hat{n}}
+\end{align*}
+
+* Addition Theorem
+\begin{align*}
+\frac{1}{\left| \xxx - \xxx' \right|} & = 4\pi \sum_l \sum_m \frac{1}{2l+1} \frac{r_<^l}{r_>^{l+1}} Y_{lm}^*(\theta', \phi') Y_{lm}(\theta, \phi)
+\end{align*}
+
+* Multipole Expansion
+\begin{align*}
+\Phi(\xxx) & = \frac{1}{4\pi \eps_0} \sum_l \sum_m \frac{4\pi}{2l+1} q_{lm} \frac{Y_{lm}(\theta, \phi)}{r^{l+1}} \\
+q_{lm} & = \int Y_{lm}^*(\theta', \phi') (r')^l \rho(\xxx') \, d^3 x' \\
+\pp & = \int \xxx' \rho(\xxx') \, d^3 x' \\
+Q_{ij} & = \int (3x_i' x_j' - (r')^2 \delta_{ij}) \rho(\xxx') \, d^3 x'
+\end{align*}
+
+* Dielectrics
+** Equations
+\begin{align*}
+\DD & = \eps_0 \EE + \PP \\
+\PP & = \eps_0 \chi \EE \\
+\DD & = \eps \EE
+\end{align*}
+
+** Boundary conditions:
+- $\DD_2 - \DD_1 \cdot \nn_{21} = \sigma$
+- Parallel components of $\EE$ are continuous
+
+* Magnetostatics
+** Basics:
+\begin{align*}
+d\BB & = \frac{\mu_0}{4\pi} \frac{I d\boldsymbol{\ell} \times \xxx}{x^3} \\
+\oint \BB \cdot d\boldsymbol{\ell} & = \mu_0 I_{enc} \\
+\AA & = \frac{\mu_0}{4\pi} \int \frac{\JJ(\xxx')}{\left| \xxx - \xxx' \right|} d^3 x' \\
+\end{align*}
+
+** Magnetization
+\begin{align*}
+\HH & =  \frac{1}{\mu_0} \BB - \MM \\
+\BB & = \mu \HH
+\end{align*}
+*** Boundary conditions:
+- Normal components of $\BB$ are equal
+- Tangential components of $\HH$ are equal
+
+* Electromagnetic Energy/Momentum Density
+** Energy Density
+\begin{align*}
+u & = \frac{1}{2} \left(  \EE \cdot \DD + \BB \cdot \HH \right)
+\end{align*}
+
+** Momentum Density
+\begin{align*}
+\mathbf{g} & = \frac{1}{c^2} \EE \times \HH
+\end{align*}
+
+** Poynting Vector
+\begin{align*}
+\SS & = \EE \times \HH
+\end{align*}
+
+* Electromagnetic Waves
+** Equations
+\begin{align*}
+\EE & = \EE_0 e^{i(k \nn \cdot \xx - \omega t)} \\
+\HH & = \nn \times \EE / Z \\
+\end{align*}
+
+** Plasmas
+\begin{align*}
+ck & = \sqrt{\omega^2 - \omega_p^2}
+\end{align*}
+
+** Reflection/Transmission coefficients:
+\begin{align*}
+T & = \frac{2n}{n + n'} \\
+R & = \pm \frac{n-n'}{n+n'}
+\end{align*}
+Index of refraction:
+\begin{align*}
+n & = \sqrt{\frac{\mu \eps}{\mu_0 \eps_0}}
+\end{align*}
+
+
+* Radiation
+** Electric Dipole
+\begin{align*}
+\HH & = \frac{ck^2}{4\pi} (\nn \times \pp) \frac{e^{ikr}}{r} \\
+\EE & = Z_0 \HH \times \nn \\
+\td{P}{\Omega} & = \frac{1}{2} \Re [r^2 \nn \cdot \EE \times \HH^*]
+\end{align*}
+
+** Magnetic Dipole
+- Same as electric dipole with $\pp \rightarrow \mm/c$, swap $\EE$ and $Z_0 \HH$
+
+** Polarization
+- Follows whatever the polarization of the $\EE$ vector is
+* Problems completed [12/24]:
+2018
+- [X] 4
+- [-] 5
+- [-] 9
+- [X] 10
+2017
+- [X] 4
+- [X] 5
+- [X] 9
+- [X] 10
+2016
+- [X] 4
+- [X] 5
+- [X] 9
+- [-] 10
+2015
+- [X] 4
+- [X] 5
+- [ ] 9
+- [ ] 10
+2014
+- [ ] 4
+- [X] 5
+- [ ] 9
+- [ ] 10
+2013
+- [ ] 4
+- [ ] 5
+- [ ] 9
+- [ ] 10

@@ -1,0 +1,193 @@
+\documentclass[12pt]{article}
+
+\usepackage{jm}
+
+% This changes the first-level of an enumerated list to use letters instead of numbers
+\renewcommand{\theenumi}{\alph{enumi}}
+\begin{document}
+
+\title{Week 3}
+\author{John Mastroberti\\
+Qual Study}
+
+\maketitle
+
+\begin{solution}{2018.6}
+The partition function for one link is
+\begin{align*}
+Z_1 & = \sum_s e^{-\beta E_s} \\
+& = \sum_{n=0}^\infty \left( e^{-\beta [(n + 1/2) \hbar \omega_a - Fa]} 
++ e^{-\beta [(n + 1/2) \hbar \omega_b - Fb]} \right) \\
+& = e^{-\beta \hbar \omega_a / 2} e^{\beta Fa} \sum_{n=0}^\infty e^{-\beta n \hbar \omega_a} 
++ e^{-\beta \hbar \omega_b / 2} e^{\beta Fb} \sum_{n=0}^\infty e^{-\beta n \hbar \omega_b} \\
+& = \frac{e^{-\beta \hbar \omega_a / 2} e^{\beta Fa}}{1 - e^{-\beta \hbar \omega_a}}
++ \frac{e^{-\beta \hbar \omega_b / 2} e^{\beta Fb}}{1 - e^{-\beta \hbar \omega_b}}
+\end{align*}
+\begin{enumerate}
+\item
+The average length for one link is given by
+\begin{align*}
+\Braket{\ell} & = \frac{1}{Z_1} \sum_s \ell_s e^{-\beta E_s} \\
+& = \frac{1}{Z_1} \sum_{n=0}^\infty \left( a e^{-\beta [(n + 1/2) \hbar \omega_a - Fa]} 
++ b e^{-\beta [(n + 1/2) \hbar \omega_b - Fb]} \right) \\
+& = \frac{1}{Z_1} \left[
+  a \frac{e^{-\beta \hbar \omega_a / 2} e^{\beta Fa}}{1 - e^{-\beta \hbar \omega_a}}
++ b \frac{e^{-\beta \hbar \omega_b / 2} e^{\beta Fb}}{1 - e^{-\beta \hbar \omega_b}} \right] \\
+& = \left[
+  a \frac{e^{-\beta \hbar \omega_a / 2} e^{\beta Fa}}{1 - e^{-\beta \hbar \omega_a}}
++ b \frac{e^{-\beta \hbar \omega_b / 2} e^{\beta Fb}}{1 - e^{-\beta \hbar \omega_b}} \right] \left[
+  \frac{e^{-\beta \hbar \omega_a / 2} e^{\beta Fa}}{1 - e^{-\beta \hbar \omega_a}}
++ \frac{e^{-\beta \hbar \omega_b / 2} e^{\beta Fb}}{1 - e^{-\beta \hbar \omega_b}} \right]^{-1}
+\end{align*}
+The links are non-interacting, so the average total length is just
+\begin{align*}
+L & = N \left[
+  a \frac{e^{-\beta \hbar \omega_a / 2} e^{\beta Fa}}{1 - e^{-\beta \hbar \omega_a}}
++ b \frac{e^{-\beta \hbar \omega_b / 2} e^{\beta Fb}}{1 - e^{-\beta \hbar \omega_b}} \right] \left[
+  \frac{e^{-\beta \hbar \omega_a / 2} e^{\beta Fa}}{1 - e^{-\beta \hbar \omega_a}}
++ \frac{e^{-\beta \hbar \omega_b / 2} e^{\beta Fb}}{1 - e^{-\beta \hbar \omega_b}} \right]^{-1}
+\end{align*}
+
+\item
+In the $T \rightarrow 0$ limit, the system should occupy its minimum energy state.
+Therefore, $\lim_{T \rightarrow 0} L = Na$ if 
+$\frac{1}{2} \hbar \omega_a - Fa < \frac{1}{2} \hbar \omega_b - Fb$, otherwise the limit is $Nb$.
+In the $T \rightarrow \infty$ limit, $\beta \rightarrow 0$, and we have
+\begin{align*}
+\lim_{T \rightarrow \infty} L & = N \lim_{T \rightarrow \infty} \left[
+  a \frac{e^{-\beta \hbar \omega_a / 2} e^{\beta Fa}}{\beta \hbar \omega_a}
++ b \frac{e^{-\beta \hbar \omega_b / 2} e^{\beta Fb}}{\beta \hbar \omega_b} \right] 
+\left[ \frac{e^{-\beta \hbar \omega_a / 2} e^{\beta Fa}}{\beta \hbar \omega_a}
++ \frac{e^{-\beta \hbar \omega_b / 2} e^{\beta Fb}}{\beta \hbar \omega_b} \right]^{-1} \\
+& = N \lim_{T \rightarrow \infty} \left[
+  a \frac{1}{\beta \hbar \omega_a}
++ b \frac{1}{\beta \hbar \omega_b} \right] 
+\left[ \frac{1}{\beta \hbar \omega_a}
++ \frac{1}{\beta \hbar \omega_b} \right]^{-1} \\
+& = N \frac{a/\hbar \omega_a + b/\hbar \omega_b}{1/\hbar \omega_a + 1/\hbar \omega_b}
+\end{align*}
+
+
+\end{enumerate}
+
+\end{solution}
+
+\renewcommand{\kk}{\mathbf{k}}
+\begin{solution}{2018.8}
+\begin{enumerate}
+\item
+This is worked in box 6.2 of the P556 notes. I reproduce the solution here
+\begin{align*}
+\frac{N}{A} & = \int \frac{1}{y^{-1} e^{\beta E} - \eta} \frac{d^2 \kk}{(2\pi)^2} \\
+& = \intoi \frac{1}{y^{-1} e^{\beta \hbar^2 k^2/2m} - \eta} \frac{k \, dk}{2\pi} 
+& u = e^{-\beta \hbar^2 k^2/2m}, \, du = e^{-\beta \hbar^2 k^2/2m} \frac{\beta \hbar^2}{2m} k \, dk \\
+& = \frac{2m}{\beta \hbar^2} \int_0^1 \frac{1}{y^{-1}/u - \eta} \frac{du}{u} \\
+& = \frac{m}{\pi \beta \hbar^2} \int_0^1 \frac{du}{y^{-1} - \eta u } \\
+& = -\frac{m}{\pi \beta \hbar^2 \eta} \left[ \log (y^{-1} - \eta u) \right]_0^1 \\
+& = -\frac{m}{\pi \beta \hbar^2 \eta} \left[ \log (y^{-1} - \eta) - \log(y^{-1}) \right] \\
+& = -\frac{m}{\pi \beta \hbar^2 \eta} \left[ \log (1 - \eta y) \right] \\
+1 - \eta y & = \exp \left( - \frac{\pi \hbar^2 \eta}{m k_B T} \frac{N}{A} \right) \\
+y & = \eta - \eta \exp \left( - \frac{\pi \hbar^2 \eta}{m k_B T} \frac{N}{A} \right) \\
+\mu & = k_B T \log \left[ \eta - \eta \exp \left( - \frac{\pi \hbar^2 \eta}{m k_B T} \frac{N}{A} \right) \right]
+\end{align*}
+
+\item
+
+
+\end{enumerate}
+<++>
+\end{solution}
+
+
+\begin{solution}{2017.7}
+\begin{enumerate}
+\item
+The single particle partition function is
+\begin{align*}
+Z_1 & = Z_{1, trans} Z_{1, rot} \\
+Z_{1, trans} & = \frac{V}{\lambda^3} \\
+Z_{1, rot} & = \frac{1}{h^2} \int \exp \left[ -\beta \frac{1}{2I} \left( p_\theta^2 + \frac{p_\phi^2}{\sin^2 \theta} \right) \right] \, d\phi \, d\theta \, dp_\phi \, dp_\theta \\
+& = \frac{1}{h^2} (2\pi) \int_0^\pi \sqrt{\frac{\pi}{1/2I}} \sqrt{\frac{\pi}{1/2I \sin^2 \theta}} \, d\theta \\
+& = \frac{4I \pi^2}{h^2} \int_0^\pi \sin \theta \, d\theta = \frac{2I}{\hbar^2} 
+\end{align*}
+Then, the partition function for $N$ particles is
+\begin{align*}
+Z(N, \beta) & = \frac{1}{N!} Z_1^N
+\end{align*}
+since the particles are indistinguishable, and the grand partition function is
+\begin{align*}
+Z_G & = \sum_{N=0}^\infty z^N Z(N, \beta) \\
+& = \exp \left( z Z_1 \right)
+\end{align*}
+
+\item
+The average number of particles is
+\begin{align*}
+\mathcal{N} & = -\pd{}{\alpha} \log Z_G \\
+& = z \pd{}{z} \log Z_G \\
+& = z \pd{}{z} \left( z Z_1 \right) \\
+& = z Z_{1, trans} Z_{1, rot}
+\end{align*}
+
+\item
+If the rotational degrees of freedom are disabled, 
+
+\end{enumerate}
+<++>
+\end{solution}
+
+
+\begin{solution}{2017.16}
+<++>
+\end{solution}
+
+
+\begin{solution}{2016.6}
+<++>
+\end{solution}
+
+
+\begin{solution}{2016.8}
+<++>
+\end{solution}
+
+
+\begin{solution}{2015.7}
+<++>
+\end{solution}
+
+
+\begin{solution}{2015.16}
+<++>
+\end{solution}
+
+
+\begin{solution}{2014.6}
+<++>
+\end{solution}
+
+
+\begin{solution}{2014.8}
+<++>
+\end{solution}
+
+
+\begin{solution}{2013.7}
+<++>
+\end{solution}
+
+
+\begin{solution}{2013.16}
+<++>
+\end{solution}
+
+
+
+
+
+
+
+
+
+
+\end{document}

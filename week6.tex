@@ -1,0 +1,250 @@
+\documentclass[12pt]{article}
+
+\usepackage{jm}
+
+% This changes the first-level of an enumerated list to use letters instead of numbers
+\renewcommand{\theenumi}{\alph{enumi}}
+\begin{document}
+
+\title{Week 3}
+\author{John Mastroberti\\
+Qual Study}
+
+\maketitle
+
+\begin{solution}{2018.2}
+\begin{enumerate}
+\item
+Let $\ell$ be the length of the rope on the right,
+$L$ be the length of rope on the left when $\ell = 0$,
+and $\theta$ be the angle that the right mass makes with the vertical.
+The Lagrangian is given by
+\begin{align*}
+T & = \frac{1}{2} m \dot{\ell}^2 + \frac{1}{2} m \dot{\ell}^2 + \frac{1}{2} m \ell^2 \dot{\theta}^{2} \\
+V & = mg(\ell - L) - mg\ell \cos \theta \\
+\Lg & = m\dot{\ell}^{2} + \frac{1}{2} m\ell^{2} \dot{\theta}^{2} + mgL + mg\ell (1 -\cos \theta) \\
+\end{align*}
+The equations of motion are then
+\begin{align*}
+\pd{\Lg}{\ell} & = m\ell \dot{\theta}^{2} + mg (1 - \cos \theta) \\
+\pd{\Lg}{\dot{\ell}} & = 2m\dot{\ell} \\
+2m \ddot{\ell} & = m\ell \dot{\theta}^{2} + mg (1 - \cos \theta) \\
+\pd{\Lg}{\theta} & = mg\ell (1 + \sin \theta) \\
+\pd{\Lg}{\dot{\theta}} & = m\ell^{2} \dot{\theta} \\
+m\ell^{2} \ddot{\theta} + 2m\ell \dot{\ell} \dot{\theta} & = mg\ell (1 + \sin \theta)
+\end{align*}
+
+
+\item
+If the right side initially exhibits small oscillations of the form
+\begin{align*}
+  \theta(t) & = \eps \sin \omega t
+\end{align*}
+where $\omega = \sqrt{g/\ell}$, then the average acceleration on the left side obeys
+\begin{align*}
+  2\Braket{\ddot{\ell}} & = \ell \Braket{(\eps \omega \cos \omega t)^{2}} + g - g \Braket{\cos(\eps \sin \omega t)} \\
+  & = \ell \eps^{2} \omega^{2} (1/2) + g - g \\
+  \Braket{\ddot{\ell}} & = \frac{1}{4} \eps^{2} g
+\end{align*}
+Since the left mass is moving upward when $\ell$ is increasing, the acceleration is in the upward direction.
+
+
+
+\end{enumerate}
+\end{solution}
+
+
+\begin{solution}{2018.15}
+\begin{enumerate}
+\item Since the three-momenta are identical and sum to zero,
+the momenta must lie in a plane and be $120\degree$ apart from each other.
+Therefore, $\theta_{1}$ and $\theta_{2}$ are $2\pi/3$, and $\phi_{1}$ and $\phi_{2}$ can be anything as long as $\phi_{1} - \phi_{2} = \pi$.
+
+\item
+
+\end{enumerate}
+\end{solution}
+
+
+\begin{solution}{2017.1}
+  \begin{enumerate}
+    \item The stable circular orbit occurs when the potential is minimized.
+    \begin{align*}
+      V(r) & = -\frac{mM}{r} + \frac{L^{2}}{2mr^{2}} - \frac{ML^2}{m r^3} \\
+      \pd{V}{r} & = \frac{mM}{r^2} - \frac{L^2}{mr^3} + \frac{3ML^2}{mr^4} = 0 \\
+      0 & = m^2 M r^2 - L^2 r + 3ML^2 \\
+      r & = \frac{1}{2m^2 M} \left( L^2 \pm \sqrt{L^4 - 12m^2 M^2 L^2} \right) \\
+      & = \frac{L^2}{2m^2 M} \left( 1 \pm \sqrt{1 - 12 \frac{m^2 M^2}{L^2}} \right) \\
+      \pd{^2 V}{r^2} & = -\frac{2mM}{r^3} + \frac{3L^2}{mr^4} - \frac{12ML^2}{mr^5} \\
+      & = -\frac{1}{mr^5} \left( 2m^2 M r^2 - 3L^2 r + 12ML^2 \right)
+    \end{align*}
+    By sketching the potential, we can check that the larger root of $\pd{V}{r}$ corresponds to the only
+    local minimum of $V(r)$. Therefore, the stable circular orbit has
+    \begin{align*}
+      r_0 & = \frac{L^2}{2m^2 M} \left( 1 + \sqrt{1 - 12 \frac{m^2 M^2}{L^2}} \right) \\
+    \end{align*}
+
+    \item
+    The potential can be expanded around the stable equilibrium as
+    \begin{align*}
+      V(r) & \approx V(r_0) + \frac{1}{2} V''(r_0) (r-r_0)^2 \\
+      V''(r_0) & = -\frac{1}{mr_0^5} \left( 2m^2 M r_0^2 - 3L^2 r_0 + 12ML^2 \right) \\
+      & = -\frac{1}{mr_0^5} \left( 2(L^2 r_0 - 3ML^2) - 3L^2 r_0 + 12ML^2 \right) \\
+      & = -\frac{1}{mr_0^5} \left( -L^2 r_0 + 6ML^2 \right) \\
+      & = \frac{L^2}{mr_0^5} \left( r_0 - 6M \right) \\
+    \end{align*}
+    Note that $r_0 > 6M$, so $V''(r_0) > 0$ as it should be for a stable equilibrium.
+    By comparison with the SHO potential, the angular frequency of small oscillations is
+    \begin{align*}
+      \omega & = \sqrt{\frac{V''(r_0)}{m}} = \frac{L}{mr_0^2} \sqrt{1 - \frac{6M}{r_0}}
+    \end{align*}
+  \end{enumerate}
+\end{solution}
+
+
+\begin{solution}{2017.3}
+
+\end{solution}
+
+
+\begin{solution}{2016.2}
+
+
+\end{solution}
+
+
+\begin{solution}{2016.15}
+
+\end{solution}
+
+
+\begin{solution}{2015.1}
+  \begin{enumerate}
+    \item Take the origin to be the point marked fixed.
+    The coordinates $(x_1, y_1)$ and $(x_2, y_2)$ of the masses $m_1$ and the mass $m_2$ are
+    \begin{align*}
+      x_1 & = \pm a \sin \theta \\
+      x_2 & = 0 \\
+      y_1 & = -a \cos \theta \\
+      y_2 & = -2a \cos \theta
+    \end{align*}
+    so the Lagrangian is
+    \begin{align*}
+      T & = \frac{1}{2} m_1 (2\dot{x}_1^2 + 2\dot{y}_1^2) + m_1 x_1^2 \Omega^2 + \frac{1}{2} m_2 \dot{y}_2^2 \\
+      & = m_1 ((a \dot{\theta} \cos \theta)^2 + (a \dot{\theta} \sin \theta)^2) + m_1 a^2 \sin^2 \theta \Omega^2 + 2m_2 a^2 \dot{\theta}^2 \sin^2 \theta \\
+      & = m_1 a^2 \dot{\theta}^2 + m_1 a^2 \sin^2 \theta \Omega^2 + 2m_2 a^2 \dot{\theta}^2 \sin^2 \theta \\
+      V & = -m_1 g a \cos \theta - 2m_2 g a \cos \theta \\
+      \Lg & = m_1 a^2 \dot{\theta}^2 + m_1 a^2 \sin^2 \theta \Omega^2 + 2m_2 a^2 \dot{\theta}^2 \sin^2 \theta + m_1 g a \cos \theta + 2m_2 g a \cos \theta \\
+    \end{align*}
+
+    \item
+    The equation of motion is
+    \begin{align*}
+      \pd{\Lg}{\theta} & = m_1 a^2 \Omega^2 \sin 2\theta + 2m_2 a^2 \dot{\theta}^2 \sin 2\theta - (m_1 g a + 2m_2 g a) \sin \theta \\
+      \pd{\Lg}{\dot{\theta}} & = 2m_1 a^2 \dot{\theta} + 4m_2 a^2 \dot{\theta} \sin^2 \theta \\
+      0 & = m_1 a^2 \Omega^2 \sin 2\theta + 2m_2 a^2 \dot{\theta}^2 \sin 2\theta - (m_1 g a + 2m_2 g a) \sin \theta \\
+        &   - 2m_1 a^2 \ddot{\theta} - 4m_2 a^2 \ddot{\theta} \sin^2 \theta - 4m_2 a^2 \dot{\theta}^2 \sin 2\theta \\
+    \end{align*}
+
+    \item
+    The system is in dynamical equilibrium when $\ddot{\theta} = 0$ given $\dot{\theta} = 0$:
+    \begin{align*}
+      0 & = m_1 a^2 \Omega^2 \sin 2\theta - (m_1 g a + 2m_2 g a) \sin \theta \\
+      & = \sin \theta ( 2m_2 a^2 \Omega^2 \cos \theta - m_1 g a - 2m_2 ga) \\
+      \theta & = 0, \, \cos^{-1} \frac{m_1 g a + 2m_2 ga}{2m_2 a^2 \Omega^2}
+    \end{align*}
+
+    \item
+
+
+  \end{enumerate}
+\end{solution}
+
+
+\begin{solution}{2015.3}
+
+\end{solution}
+
+
+
+\begin{solution}{2014.2}
+  \begin{enumerate}
+    \item While the wheel is slipping, the force and torque from friction are
+    \begin{align*}
+      F_{fr} & = Mg\mu \\
+      \Gamma_{fr} & = Mg\mu a
+    \end{align*}
+    Therefore, if $x$ is the horizontal position of the wheel and $\theta$ is it's rotational coordinate,
+    the equations of motion while slipping are
+    \begin{align*}
+      M \ddot{x} & = Mg\mu \\
+      I \ddot{\theta} & = -Mg\mu a
+    \end{align*}
+    which are easily solved:
+    \begin{align*}
+      x(t) & = x(0) + \dot{x}(0) t + \frac{1}{2} g\mu t^2 \\
+      \theta(t) & = \theta(0) + \dot{\theta}(0) t - \frac{1}{2} \frac{Mg\mu a}{I} t^2
+    \end{align*}
+    Given the initial conditions, we see that
+    \begin{align*}
+      x(t) & = \frac{1}{2} g\mu t^2 \\
+      \theta(t) & = \omega_0 t - \frac{1}{2} \frac{Mg\mu a}{I} t^2
+    \end{align*}
+
+    \item Slipping stops when $x$ and $\theta$ reach the condition for rolling without slipping:
+    \begin{align*}
+      \dot{x} & = a \dot{\theta} \\
+      g\mu t & = a \omega_0 - \frac{Mg\mu a^2}{I} t \\
+      \tau & = \frac{a \omega_0}{g\mu + Mg\mu a^2/I}
+    \end{align*}
+
+    \item The center of mass speed for $t>\tau$ is just
+    \begin{align*}
+      \dot{x}(\tau) & = \frac{a \omega_0}{1 + Ma^2/I}
+    \end{align*}
+
+  \end{enumerate}
+\end{solution}
+
+
+\begin{solution}{2014.15}
+
+\end{solution}
+
+
+\begin{solution}{2013.1}
+  \begin{enumerate}
+    \item The equations of motion for $\boldsymbol{\omega}$ are
+    \begin{align*}
+      I_{11} \dot{\omega}_1 & = \omega_2 \omega_3 (I_{22} - I_{33}) \\
+      I_{22} \dot{\omega}_2 & = \omega_3 \omega_1 (I_{33} - I_{11}) \\
+      I_{33} \dot{\omega}_3 & = \omega_1 \omega_2 (I_{11} - I_{22})
+    \end{align*}
+    which simplify to
+    \begin{align*}
+      \dot{\omega}_1 & = \omega_2 \omega_3 \frac{I_{22} - I_{33}}{I_{22}} \\
+      \dot{\omega}_2 & = \omega_1 \omega_3 \frac{I_{33} - I_{22}}{I_{22}} \\
+      \dot{\omega}_3 & = 0
+    \end{align*}
+    Since $\omega_3$ is constant, $\omega_3 = \omega_r$ always.
+    Defining $\Omega = \omega_r \frac{I_{22} - I_{33}}{I_{22}}$, we have
+    \begin{align*}
+      \dot{\omega}_1 & = \Omega \omega_2 \\
+      \dot{\omega}_2 & = -\Omega \omega_1
+    \end{align*}
+    The solutions to these differential equations are obviously $\sin \Omega t$ and $\cos \Omega t$.
+    Therefore, $\omega_p = \Omega$.
+
+    \item
+
+  \end{enumerate}
+\end{solution}
+
+
+\begin{solution}{2013.3}
+
+\end{solution}
+
+
+
+\end{document}

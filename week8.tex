@@ -1,0 +1,123 @@
+\documentclass[12pt]{article}
+
+\usepackage{jm}
+
+% This changes the first-level of an enumerated list to use letters instead of numbers
+\renewcommand{\theenumi}{\alph{enumi}}
+\begin{document}
+
+\title{Week 8}
+\author{John Mastroberti\\
+Qual Study}
+
+\maketitle
+
+\begin{solution}{2018.12}
+  \begin{enumerate}
+    \item The perturbation is
+    \begin{align*}
+      H_1 & = cx
+    \end{align*}
+    so the first order correction to the energy is
+    \begin{align*}
+      E^1_n & = \Braket{n | H_1 | n} = 0
+    \end{align*}
+    since $H_1$ is odd and $\left| \psi_n(x) \right|^2$ is even.
+    The second order correction to the energy is
+    \begin{align*}
+      E^2_n & = \sum_{m \neq n} \frac{\left| \Braket{m | H_1 | n} \right|^2}{E_n - E_m} \\
+      \Braket{m | H_1 | n} & = c \Braket{ m | x | n } \\
+      & = c \Braket{ m | \sqrt{\frac{\hbar}{2m\omega}} (a^\dagger + a) | n} \\
+      & = c \sqrt{\frac{\hbar}{2m\omega}} \left[ \sqrt{n+1} \Braket{ m | n+1} + \sqrt{n} \Braket{m | n-1} \right] \\
+      E^2_n & = c^2 \frac{\hbar}{2m\omega} \left[ \frac{n+1}{E_n - E_{n+1}} + \frac{n}{E_n - E_{n-1}} \right] \\
+      & = -\frac{c^2}{2m\omega^2}
+    \end{align*}
+
+
+    \item
+    The exact eigenvalues are found by completing the square:
+    \begin{align*}
+      V(x) & = \frac{1}{2} kx^2 + cx + \frac{c^2}{2k} - \frac{c^2}{2k} \\
+      & = \left( \sqrt{\frac{k}{2}} x + \frac{c}{\sqrt{2k}} \right)^2 - \frac{c^2}{2k} \\
+      & = \frac{k}{2} \left( x + \frac{c}{k} \right)^2 - \frac{c^2}{2k}
+    \end{align*}
+    Therefore, the perturbed eigenstates are $\psi_n(x) = \psi_n^{(0)}(x + c/k)$ and the perturbed eigenvalues
+    are $E_n & = E_n^{(0)} - \frac{c^2}{2k}$. This agrees exactly with what was found in (a).
+
+    \item
+    As $k \rightarrow 0$, the shift in energies from the perturbation dominates.
+
+  \end{enumerate}
+\end{solution}
+
+
+\begin{solution}{2018.14}
+  \begin{enumerate}
+    \item The Hamiltonian can be written using
+    \begin{align*}
+      J^2 & = (\mathbf{J}_a + \mathbf{J}_b) \cdot (\mathbf{J}_a + \mathbf{J}_b) \\
+      & = J_a^2 + J_b^2 + 2 \mathbf{J}_a \cdot \mathbf{J}_b \\
+      H & = \frac{A}{2} (J^2 - J_a^2 - J_b^2) \\
+      & = \frac{A}{2} \left( J^2 - \frac{3}{4} \hbar^2 - \frac{15}{4} \hbar^2 \right)
+    \end{align*}
+    Thus, we see that the eigenstates of $H$ are the total spin eigenstates.
+    A spin $1/2$ and a spin $3/2$ can add to create total spin $2$ or $1$.
+    Thus, the energy eigenvalues are $\frac{A \hbar^2}{2} (6 - 9/2)$ and $\frac{A \hbar^2}{2} (2 - 9/2)$.
+
+    \item Their degeneracies are $5$ and $3$ respectively.
+  \end{enumerate}
+\end{solution}
+
+
+\begin{solution}{2017.11}
+
+\end{solution}
+
+
+\begin{solution}{2017.13}
+
+\end{solution}
+
+
+\begin{solution}{2016.12}
+
+\end{solution}
+
+
+\begin{solution}{2016.14}
+
+\end{solution}
+
+
+\begin{solution}{2015.11}
+
+\end{solution}
+
+
+\begin{solution}{2015.13}
+
+\end{solution}
+
+
+\begin{solution}{2014.12}
+
+\end{solution}
+
+
+\begin{solution}{2014.14}
+
+\end{solution}
+
+
+\begin{solution}{2013.11}
+
+\end{solution}
+
+
+\begin{solution}{2013.13}
+
+\end{solution}
+
+
+
+\end{document}

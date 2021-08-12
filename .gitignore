@@ -1,0 +1,8 @@
+*.aux
+*.log
+__pycache__
+.auctex-auto
+*.zip
+.~lock*
+*.synctex.gz
+*.fdb_latexmk
