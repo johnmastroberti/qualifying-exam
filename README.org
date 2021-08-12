@@ -1,0 +1,6 @@
+#+TITLE: README
+
+This repository contains preperatory materials for the IU physics PhD Qualifying Exam.
+Contents include
+- Solutions to past qual problems
+- A formula/cram sheet covering all qual subject areas
