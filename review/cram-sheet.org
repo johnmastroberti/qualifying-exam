@@ -45,6 +45,12 @@ In linear media,
 \sigma & = -\eps_0 \pd{\Phi}{\hat{n}}
 \end{align*}
 
+** Method of Images
+- Charge $q$ a distance $a$ from a grounded conducting plane
+  - Image charge $-q$ a distance $a$ from the plane
+- Charge $q$ a distance $y$ from the center of a grounded conducting sphere of radius $a$
+  - Image charge $q' = -(a/y) q$ a distance $a^2/y$ from the center of the sphere
+
 ** Laplace's Equation and Solutions
 In a source free region, both $\EE$ and $\HH$ can be written as the gradient of a scalar potential which satisfies Laplace's equation,
 \begin{align*}
